@@ -9,7 +9,7 @@ jakpost_style(
   chart_type,
   y,
   scale_y_min_limit = 0,
-  scale_y_max_limit = 0,
+  scale_y_max_limit_add = 0,
   axis_ticks_y = c(breaks = 0, addition = 0),
   headline = "Title",
   subtitle = "Description",
@@ -30,7 +30,7 @@ jakpost_style(
 "truncated" adds a space between the lower limit of the axis range and the minimum value of the variable.
 "min" sets the minimum value of the variable as the lower limit of the axis range.}
 
-\item{scale_y_max_limit}{The default upper limit of the y axis range is the highest value in the variable.
+\item{scale_y_max_limit_add}{The default upper limit of the y axis range is the highest value in the variable.
 This argument takes a value to raise the upper limit by adding it to the default value.}
 
 \item{axis_ticks_y}{This argument takes two values for \code{breaks} and \code{addition}.
@@ -78,7 +78,7 @@ jakpost_style(
   chart_type = "line",
   y = gapminder$gdpPercap,
   scale_y_min_limit = 0,
-  scale_y_max_limit = 500,
+  scale_y_max_limit_add = 500,
   axis_ticks_y = c(1000, -40),
   headline = "Test",
   subtitle = "Test",

@@ -9,7 +9,7 @@
 #' @param scale_y_min_limit An option to customize the y axis range. Defaults to 0.
 #' "truncated" adds a space between the lower limit of the axis range and the minimum value of the variable.
 #' "min" sets the minimum value of the variable as the lower limit of the axis range.
-#' @param scale_y_max_limit The default upper limit of the y axis range is the highest value in the variable.
+#' @param scale_y_max_limit_add The default upper limit of the y axis range is the highest value in the variable.
 #' This argument takes a value to raise the upper limit by adding it to the default value.
 #' @param axis_ticks_y This argument takes two values for `breaks` and `addition`.
 #' The first is a value to set the breaks of the y axis. The second value adds to the upper limit of the axis.
@@ -46,7 +46,7 @@
 #'   chart_type = "line",
 #'   y = gapminder$gdpPercap,
 #'   scale_y_min_limit = 0,
-#'   scale_y_max_limit = 500,
+#'   scale_y_max_limit_add = 500,
 #'   axis_ticks_y = c(1000, -40),
 #'   headline = "Test",
 #'   subtitle = "Test",
@@ -60,7 +60,7 @@ jakpost_style <- function(
   chart_type,
   y,
   scale_y_min_limit = 0,
-  scale_y_max_limit = 0,
+  scale_y_max_limit_add = 0,
   axis_ticks_y = c(breaks = 0, addition = 0),
   headline = "Title",
   subtitle = "Description",
@@ -101,7 +101,7 @@ jakpost_style <- function(
         } else {
           0
         },
-        round(ceiling(max(y)) + scale_y_max_limit)
+        round(ceiling(max(y)) + scale_y_max_limit_add)
       ),
 
       'custom-ticks-y' = stringr::str_c(

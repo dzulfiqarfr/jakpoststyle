@@ -46,7 +46,7 @@ jakpost_style(
   chart_type = "line",
   y = gap_indo$gdpPercap, # Subset of data from `gapminder`
   scale_y_min_limit = 0, # Start the y axis from 0
-  scale_y_max_limit = 500, # Raise the upper limit of the y axis range by 500
+  scale_y_max_limit_add = 500, # Raise the upper limit of the y axis range by 500
   axis_ticks_y = c(1000, -40), # Sets the breaks by 1,000 and subtracts the maximum value by 40
   headline = "Improvement in material wellbeing",
   subtitle = str_c(
