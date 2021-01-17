@@ -1,18 +1,17 @@
-#' Applies The Jakarta Post's unofficial Datawrapper chart template
+#' Apply The Jakarta Post's unofficial style for Datawrapper chart
 #'
-#' Applies The Jakarta Post's unofficial Datawrapper chart template
-#' to the `DatawRappr::dw_edit_chart()` function for editing chart properties.
-#' The template covers custom input for chart types, y axis properties, byline and the Post's logo.
+#' Edit properties of a Datawrapper chart with an unofficial style of
+#' The Jakarta Post using the `DatawRappr::dw_edit_chart()` function.
 #'
-#' @param chart_key A character of Datawrapper chart id.
+#' @param chart_id A character of Datawrapper chart id.
 #' @param chart_type The type of the chart (see chart types section).
 #' @param y The variable mapped on the y axis.
-#' @param custom_y_axis An option to customize the y axis range. Defaults to 0.
+#' @param scale_y_min_limit An option to customize the y axis range. Defaults to 0.
 #' "truncated" adds a space between the lower limit of the axis range and the minimum value of the variable.
 #' "min" sets the minimum value of the variable as the lower limit of the axis range.
-#' @param raise_upper_range The default upper limit of the y axis range is the highest value in the variable.
+#' @param scale_y_max_limit The default upper limit of the y axis range is the highest value in the variable.
 #' This argument takes a value to raise the upper limit by adding it to the default value.
-#' @param y_axis_ticks This argument takes two values for `breaks` and `addition`.
+#' @param axis_ticks_y This argument takes two values for `breaks` and `addition`.
 #' The first is a value to set the breaks of the y axis. The second value adds to the upper limit of the axis.
 #' @param headline The title of the chart.
 #' @param subtitle The subtitle of the chart.
@@ -35,7 +34,7 @@
 #' Otherwise the `chart_type` argument takes any values accepted by Datawrapper
 #' (see the Chart Types section in the `DataWrappr::dw_edit_chart()` documentation).
 #'
-#' @seealso [DatawRappr::dw_edit_chart()] for the underlying function.
+#' @seealso \code{\link[DatawRappr]{dw_edit_chart}} for the underlying function.
 #'
 #' @export
 #'
@@ -43,12 +42,12 @@
 #' \dontrun{
 #'
 #' jakpost_style(
-#'   chart_key = "4BcD3",
+#'   chart_id = "4BcD3",
 #'   chart_type = "line",
 #'   y = gapminder$gdpPercap,
-#'   custom_y_axis = 0,
-#'   raise_upper_range = 500,
-#'   y_axis_ticks = c(1000, -40),
+#'   scale_y_min_limit = 0,
+#'   scale_y_max_limit = 500,
+#'   axis_ticks_y = c(1000, -40),
 #'   headline = "Test",
 #'   subtitle = "Test",
 #'   author = "Dzulfiqar Fathur Rahman",
@@ -57,12 +56,12 @@
 #' )
 #' }
 jakpost_style <- function(
-  chart_key,
+  chart_id,
   chart_type,
   y,
-  custom_y_axis = 0,
-  raise_upper_range = 0,
-  y_axis_ticks = c(breaks = 0, addition = 0),
+  scale_y_min_limit = 0,
+  scale_y_max_limit = 0,
+  axis_ticks_y = c(breaks = 0, addition = 0),
   headline = "Title",
   subtitle = "Description",
   author,
@@ -72,7 +71,7 @@ jakpost_style <- function(
 ) {
 
   DatawRappr::dw_edit_chart(
-    chart_id = chart_key,
+    chart_id = chart_id,
 
     type = if (chart_type == "line") {
       "d3-lines"
@@ -95,21 +94,21 @@ jakpost_style <- function(
       'x-grid' = "ticks",
 
       'custom-range-y' = range <- c(
-        if (custom_y_axis == "truncated") {
+        if (scale_y_min_limit == "truncated") {
           floor((3 * min(y) - max(y)) / 2)
-        } else if (custom_y_axis == "min") {
+        } else if (scale_y_min_limit == "min") {
           round(y)
         } else {
           0
         },
-        round(ceiling(max(y)) + raise_upper_range)
+        round(ceiling(max(y)) + scale_y_max_limit)
       ),
 
       'custom-ticks-y' = stringr::str_c(
         seq(
           range[1],
-          range[2] + y_axis_ticks[[2]],
-          by = y_axis_ticks[[1]]
+          range[2] + axis_ticks_y[[2]],
+          by = axis_ticks_y[[1]]
         ),
         collapse = ", "
       ),

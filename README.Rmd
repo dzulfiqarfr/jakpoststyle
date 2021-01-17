@@ -9,7 +9,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  fig.width = 6, 
+  fig.asp = 0.618, 
+  out.width = "70%",
+  fig.align = "center"
 )
 ```
 
@@ -39,12 +42,12 @@ library(jakpoststyle)
 
 # Apply the function to an existing chart
 jakpost_style(
-  chart_key = # Insert the chart id here,
+  chart_id = # Insert the chart id here,
   chart_type = "line",
   y = gap_indo$gdpPercap, # Subset of data from `gapminder`
-  custom_y_axis = 0, # Start the y axis from 0
-  raise_upper_range = 500, # Raise the y axis range by 500
-  y_axis_ticks = c(1000, -40), # Sets the breaks by 1,000 and subtracts the maximum value by 40
+  scale_y_min_limit = 0, # Start the y axis from 0
+  scale_y_max_limit = 500, # Raise the upper limit of the y axis range by 500
+  axis_ticks_y = c(1000, -40), # Sets the breaks by 1,000 and subtracts the maximum value by 40
   headline = "Improvement in material wellbeing",
   subtitle = str_c(
     "Indonesia's gross domestic product (GDP) per capita ",
