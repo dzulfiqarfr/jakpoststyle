@@ -64,4 +64,9 @@ produced this chart:
 knitr::include_graphics("figures/idn_gdpPercap_plot.png")
 ```
 </p>
-__NOTE: This is not an official template from The Jakarta Post.__
+
+## Note
+
+The package is optimized for line and column charts. Optimization for other chart types will, hopefully, follow in the future.
+
+__Disclaimer: This is not an official template from The Jakarta Post.__

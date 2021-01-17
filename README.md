@@ -58,4 +58,9 @@ produced this chart:
 
 </p>
 
-**NOTE: This is not an official template from The Jakarta Post.**
+## Note
+
+The package is optimized for line and column charts. Optimization for
+other chart types will, hopefully, follow in the future.
+
+**Disclaimer: This is not an official template from The Jakarta Post.**
