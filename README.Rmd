@@ -59,9 +59,9 @@ jakpost_style(
 ```
 
 produced this chart:
-
-```{r demo, echo = F}
+<p align="center">
+```{r demo, echo = F, fig.align = "center"}
 knitr::include_graphics("figures/idn_gdpPercap_plot.png")
 ```
-
+</p>
 __NOTE: This is not an official template from The Jakarta Post.__

@@ -52,6 +52,10 @@ jakpost_style(
 
 produced this chart:
 
+<p align="center">
+
 <img src="figures/idn_gdpPercap_plot.png" width="70%" style="display: block; margin: auto;" />
+
+</p>
 
 **NOTE: This is not an official template from The Jakarta Post.**
