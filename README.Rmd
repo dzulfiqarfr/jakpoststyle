@@ -12,25 +12,23 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   fig.width = 6, 
   fig.asp = 0.618, 
-  out.width = "70%",
   fig.align = "center"
 )
 ```
 
-
 # jakpoststyle
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
-The __jakpoststyle__ package makes it easy to customize [Datawrapper](https://www.datawrapper.de/) charts (created with a free plan account) using a custom theme of The Jakarta Post. It builds on the __DatawRappr__ package developed by [Benedict Witzenberger](https://github.com/munichrocker).
+The **jakpoststyle** package makes it easy to customize [Datawrapper](https://www.datawrapper.de/) charts (created with a free plan account) using a custom theme of The Jakarta Post. It builds on the **DatawRappr** package developed by [Benedict Witzenberger](https://github.com/munichrocker).
 
 The functions:
 
-* `jakpost_style` adds a chart description, byline and The Jakarta Post's logo;  
-* `jp_scale_y` modifies the y-axis elements, including truncating the scale; and  
-* `jp_covid_annotation` creates COVID-19 text and line annotations.
-
+-   `jakpost_style` adds a chart description, byline and The Jakarta Post's logo;  
+-   `jp_scale_y` modifies the y-axis elements, including truncating the scale; and  
+-   `jp_covid_annotation` creates COVID-19 text and line annotations.
 
 ## Installation
 
@@ -38,10 +36,9 @@ The functions:
 devtools::install_github("dzulfiqarfr/jakpoststyle")
 ```
 
-
 ## Getting started
 
-__jakpoststyle__ works on an existing Datawrapper chart. It requires the __DatawRappr__ package, which allows you to use the Datawrapper's API through R.
+**jakpoststyle** works on an existing Datawrapper chart. It requires the **DatawRappr** package, which allows you to use the Datawrapper's API through R.
 
 ```{r example, eval = F}
 # Load the packages
@@ -76,23 +73,18 @@ jp_covid_annotation(
 )
 ```
 
-<p align="center">
 ```{r demo, echo = F, fig.align = "center"}
 knitr::include_graphics("figures/idn_manufacturing_plot.png")
 ```
-</p>
-
 
 ## Note
 
 The package is optimized for line and column charts. Optimization for other chart types will, hopefully, follow in the future.
 
-
 ## Disclaimer
 
 This is not an official template from The Jakarta Post.
 
-
 ## More resources
 
-The package mainly uses the `dw_edit_chart()` function from the __DatawRappr__ package, which you can learn [here](https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html). You can read Datawrapper's API documentation [here](https://developer.datawrapper.de/reference).
+The package mainly uses the `dw_edit_chart()` function from the **DatawRappr** package, which you can learn [here](https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html). You can read Datawrapper's API documentation [here](https://developer.datawrapper.de/reference).
