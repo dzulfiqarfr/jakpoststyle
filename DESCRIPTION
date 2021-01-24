@@ -7,10 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "frdzulfiqar@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: Edit a chart created on Datawrapper with an unofficial sytle of
-    The Jakarta Post used by its journalist Dzulfiqar Fathur Rahman.
-    The package builds on the `DatawRappr` package developed by
-    Benedict Witzenberger.
+Description: Edit Datawrapper chart properties using 
+    a custom theme of The Jakarta Post. This makes it easy to position the y-axis
+    on the right side, modify the y-axis elements, write the byline, 
+    add the Post's logo and create a COVID-19 annotation.
 License: MIT + file LICENSE
 URL: https://github.com/dzulfiqarfr/jakpoststyle
 BugReports: https://github.com/dzulfiqarfr/jakpoststyle/issues
@@ -21,7 +21,8 @@ RoxygenNote: 7.1.1
 Imports: 
     stringr,
     dplyr,
-    DatawRappr
+    DatawRappr,
+    lubridate
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

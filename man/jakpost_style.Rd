@@ -2,16 +2,10 @@
 % Please edit documentation in R/jakpost_style.R
 \name{jakpost_style}
 \alias{jakpost_style}
-\title{Apply The Jakarta Post's unofficial style for Datawrapper chart}
+\title{Apply The Jakarta Post theme to Datawrapper charts}
 \usage{
 jakpost_style(
   chart_id,
-  chart_type,
-  y,
-  scale_y_min_limit = 0,
-  scale_y_max_limit_add = 0,
-  axis_ticks_y = c(breaks = 0, addition = 0),
-  headline = "Title",
   subtitle = "Description",
   author,
   source = "",
@@ -20,73 +14,31 @@ jakpost_style(
 )
 }
 \arguments{
-\item{chart_id}{A character of Datawrapper chart id.}
+\item{chart_id}{Datawrapper chart id.}
 
-\item{chart_type}{The type of the chart (see chart types section).}
+\item{subtitle}{Description of the chart.}
 
-\item{y}{The variable mapped on the y axis.}
+\item{author}{Byline of the chart.}
 
-\item{scale_y_min_limit}{An option to customize the y axis range. Defaults to 0.
-"truncated" adds a space between the lower limit of the axis range and the minimum value of the variable.
-"min" sets the minimum value of the variable as the lower limit of the axis range.}
+\item{source}{Data source.}
 
-\item{scale_y_max_limit_add}{The default upper limit of the y axis range is the highest value in the variable.
-This argument takes a value to raise the upper limit by adding it to the default value.}
+\item{source_url}{Link to the data source.}
 
-\item{axis_ticks_y}{This argument takes two values for \code{breaks} and \code{addition}.
-The first is a value to set the breaks of the y axis. The second value adds to the upper limit of the axis.}
-
-\item{headline}{The title of the chart.}
-
-\item{subtitle}{The subtitle of the chart.}
-
-\item{author}{The byline of the chart.}
-
-\item{source}{The data source.}
-
-\item{source_url}{The link to the data source.}
-
-\item{footnote}{A footnote to the chart.}
-}
-\value{
-A message telling whether a chart has been successfully updated or not.
+\item{footnote}{Footnote to the chart.}
 }
 \description{
-Edit properties of a Datawrapper chart with an unofficial style of
-The Jakarta Post using the \code{DatawRappr::dw_edit_chart()} function.
-}
-\note{
-Chart types
-This function takes the following custom inputs to define the chart types:
-\itemize{
-\item "line" (which translates into "d3-lines")
-\item "column" (which translates into "column-chart")
-\item "bar" (which translates into "d3-bars")
-\item "area" (which translates into "d3-area")
-\item "scatter_plot" (which translates into "d3-scatter-plot")
-\item "stacked_bar" (which translates into "d3-bars-stacked")
-}
-
-Otherwise the \code{chart_type} argument takes any values accepted by Datawrapper
-(see the Chart Types section in the \code{DataWrappr::dw_edit_chart()} documentation).
+Use the The Jakarta Post custom theme to edit Datawrapper chart properties.
 }
 \examples{
 \dontrun{
-
 jakpost_style(
   chart_id = "4BcD3",
-  chart_type = "line",
-  y = gapminder$gdpPercap,
-  scale_y_min_limit = 0,
-  scale_y_max_limit_add = 500,
-  axis_ticks_y = c(1000, -40),
-  headline = "Test",
-  subtitle = "Test",
+  subtitle = "Indonesia's gross domestic product (GDP) per capita (in US dollars)",
   author = "Dzulfiqar Fathur Rahman",
-  source = "Gapminder",
-  source_url = ""
+  source = "Gapminder"
 )
 }
+
 }
 \seealso{
 \code{\link[DatawRappr]{dw_edit_chart}} for the underlying function.

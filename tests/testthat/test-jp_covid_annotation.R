@@ -1,4 +1,4 @@
-test_that("Jakpost custom theme has been successfully applied", {
+test_that("COVID-19 annotation has been successfully added", {
 
   x <- dplyr::tibble(
     month = seq(
@@ -14,10 +14,9 @@ test_that("Jakpost custom theme has been successfully applied", {
   DatawRappr::dw_data_to_chart(x, chart_id)
 
   expect_output(
-    jakpost_style(
+    jp_covid_annotation(
       chart_id,
-      author = "Dzulfiqar Fathur Rahman",
-      footnote = stringr::str_c("Last tested on ", format(Sys.time(), "%b %d, %Y"))
+      covid_text_y = 20
     ),
     stringr::str_c("Chart ", chart_id, " succesfully updated.")
   )
