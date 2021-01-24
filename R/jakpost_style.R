@@ -15,9 +15,9 @@
 #' \dontrun{
 #' jakpost_style(
 #'   chart_id = "4BcD3",
-#'   subtitle = "Indonesia's gross domestic product (GDP) per capita (in US dollars)",
 #'   author = "Dzulfiqar Fathur Rahman",
-#'   source = "Gapminder"
+#'   intro = "Indonesia's gross domestic product (GDP) per capita (in US dollars)",
+#'   source_name = "Gapminder"
 #' )
 #' }
 #'
