@@ -84,7 +84,7 @@ This is not an official template from The Jakarta Post.
 ## More resources
 
 The package mainly uses the `dw_edit_chart()` function from the
-**DatawRappr** package, which you learn more
+**DatawRappr** package, which you can learn
 [here](https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html).
-You can read the Datawrapper API documentation
+You can read Datawrapper’s API documentation
 [here](https://developer.datawrapper.de/reference).
