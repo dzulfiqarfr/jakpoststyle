@@ -4,27 +4,18 @@
 \alias{jakpost_style}
 \title{Apply The Jakarta Post theme to Datawrapper charts}
 \usage{
-jakpost_style(
-  chart_id,
-  subtitle = "Description",
-  author,
-  source = "",
-  source_url = "",
-  footnote = ""
-)
+jakpost_style(chart_id, author, footnote = "", ...)
 }
 \arguments{
 \item{chart_id}{Datawrapper chart id.}
 
-\item{subtitle}{Description of the chart.}
-
 \item{author}{Byline of the chart.}
 
-\item{source}{Data source.}
-
-\item{source_url}{Link to the data source.}
-
 \item{footnote}{Footnote to the chart.}
+
+\item{...}{Other arguments passed on to \code{\link[DatawRappr]{dw_edit_chart}},
+including \code{intro}, \code{source_name} and \code{source_url} for chart subtitle,
+source and source's link, respectively.}
 }
 \description{
 Use the The Jakarta Post custom theme to edit Datawrapper chart properties.

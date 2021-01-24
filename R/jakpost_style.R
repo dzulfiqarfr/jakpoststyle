@@ -3,11 +3,11 @@
 #' Use the The Jakarta Post custom theme to edit Datawrapper chart properties.
 #'
 #' @param chart_id Datawrapper chart id.
-#' @param subtitle Description of the chart.
 #' @param author Byline of the chart.
-#' @param source Data source.
-#' @param source_url Link to the data source.
 #' @param footnote Footnote to the chart.
+#' @param ... Other arguments passed on to \code{\link[DatawRappr]{dw_edit_chart}},
+#' including `intro`, `source_name` and `source_url` for chart subtitle,
+#' source and source's link, respectively.
 #'
 #' @seealso \code{\link[DatawRappr]{dw_edit_chart}} for the underlying function.
 #'
@@ -22,9 +22,11 @@
 #' }
 #'
 #' @export
-
-jakpost_style <- function(chart_id, subtitle = "Description", author,
-                          source = "", source_url = "", footnote = ""
+jakpost_style <- function(
+  chart_id,
+  author,
+  footnote = "",
+  ...
 ) {
 
   # Custom theme
@@ -40,7 +42,6 @@ jakpost_style <- function(chart_id, subtitle = "Description", author,
       `label-colors` = "false",
       `show-tooltips` = "true"
     ),
-    intro = subtitle,
     byline = stringr::str_c("JP/", author),
     annotate = stringr::str_c(
       footnote,
@@ -57,10 +58,8 @@ jakpost_style <- function(chart_id, subtitle = "Description", author,
       ),
       sep = dplyr::if_else(footnote != "", " ", "")
     ),
-    source_name = source,
-    source_url  = source_url,
-    theme = "datawrapper",
-    language = "en-US"
+    language = "en-US",
+    ...
   )
 
 }

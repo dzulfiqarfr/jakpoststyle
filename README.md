@@ -4,7 +4,6 @@
 # jakpoststyle
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The **jakpoststyle** package makes it easy to customize
@@ -15,11 +14,11 @@ Witzenberger](https://github.com/munichrocker).
 
 The functions:
 
-  - `jakpost_style` adds a chart description, byline and The Jakarta
+-   `jakpost_style` adds a chart description, byline and The Jakarta
     Post’s logo;  
-  - `jp_scale_y` modifies the y-axis elements, including truncating the
+-   `jp_scale_y` modifies the y-axis elements, including truncating the
     scale; and  
-  - `jp_covid_annotation` creates COVID-19 text and line annotations.
+-   `jp_covid_annotation` creates COVID-19 text and line annotations.
 
 ## Installation
 
@@ -41,9 +40,9 @@ library(jakpoststyle)
 # Apply the custom theme
 jakpost_style(
   chart_id,
-  subtitle = "Indonesian manufacturing sector's output (percent change from a year earlier)",
   author = "Dzulfiqar Fathur Rahman",
-  source = "Statistics Indonesia (BPS)",
+  intro = "Indonesian manufacturing sector's output (percent change from a year earlier)",
+  source_name = "Statistics Indonesia (BPS)",
   source_url = "bps.go.id"
 )
 
@@ -67,9 +66,7 @@ jp_covid_annotation(
 ```
 
 <p align="center">
-
 <img src="figures/idn_manufacturing_plot.png" width="70%" style="display: block; margin: auto;" />
-
 </p>
 
 ## Note

@@ -51,9 +51,9 @@ library(jakpoststyle)
 # Apply the custom theme
 jakpost_style(
   chart_id,
-  subtitle = "Indonesian manufacturing sector's output (percent change from a year earlier)",
   author = "Dzulfiqar Fathur Rahman",
-  source = "Statistics Indonesia (BPS)",
+  intro = "Indonesian manufacturing sector's output (percent change from a year earlier)",
+  source_name = "Statistics Indonesia (BPS)",
   source_url = "bps.go.id"
 )
 
