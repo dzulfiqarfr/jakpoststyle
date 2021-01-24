@@ -16,9 +16,9 @@ Witzenberger](https://github.com/munichrocker).
 The functions:
 
   - `jakpost_style` adds a chart description, byline and The Jakarta
-    post’s logo;  
-  - `jp_scale_y` modifies the y-axis elements, including the axis
-    limits; and  
+    Post’s logo;  
+  - `jp_scale_y` modifies the y-axis elements, including truncating the
+    scale; and  
   - `jp_covid_annotation` creates COVID-19 text and line annotations.
 
 ## Installation

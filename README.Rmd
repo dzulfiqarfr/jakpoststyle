@@ -27,8 +27,8 @@ The __jakpoststyle__ package makes it easy to customize [Datawrapper](https://ww
 
 The functions:
 
-* `jakpost_style` adds a chart description, byline and The Jakarta post's logo;  
-* `jp_scale_y` modifies the y-axis elements, including the axis limits; and  
+* `jakpost_style` adds a chart description, byline and The Jakarta Post's logo;  
+* `jp_scale_y` modifies the y-axis elements, including truncating the scale; and  
 * `jp_covid_annotation` creates COVID-19 text and line annotations.
 
 

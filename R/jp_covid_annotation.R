@@ -3,6 +3,8 @@
 #' Add line and text annotations for COVID-19 pandemic to Datawrapper charts.
 #'
 #' @param chart_id Datawrapper chart id.
+#' @param date Date of first coronavirus case(s) being reported.
+#' Defaults to "2020/03", in which Indonesia reported its first two confirmed cases.
 #' @param covid_text_y Position of the COVID-19 text annotation on the y-axis.
 #' @param text_color Color of the text annotation. Defaults to "#888".
 #' @param text_bold Make the text annotation bold. Defaults to `FALSE`.
@@ -30,6 +32,7 @@
 #' @export
 jp_covid_annotation <- function(
   chart_id,
+  date = "2020/03",
   covid_text_y = NA,
   text_color = "#888",
   text_bold = FALSE,
@@ -74,7 +77,7 @@ jp_covid_annotation <- function(
   # COVID-19 line annotation
   line_covid <-  list(
     list(
-      x0 = "2020/03",
+      x0 = date,
       type = "x",
       color = line_color,
       display = "line",

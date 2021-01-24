@@ -6,6 +6,7 @@
 \usage{
 jp_covid_annotation(
   chart_id,
+  date = "2020/03",
   covid_text_y = NA,
   text_color = "#888",
   text_bold = FALSE,
@@ -16,6 +17,9 @@ jp_covid_annotation(
 }
 \arguments{
 \item{chart_id}{Datawrapper chart id.}
+
+\item{date}{Date of first coronavirus case(s) being reported.
+Defaults to "2020/03", in which Indonesia reported its first two confirmed cases.}
 
 \item{covid_text_y}{Position of the COVID-19 text annotation on the y-axis.}
 
