@@ -34,13 +34,31 @@ jakpost_style <- function(
     chart_id = chart_id,
     visualize = list(
       `x-grid` = "ticks",
+      `grid-lines-x` = list(
+        type = "ticks",
+        enabled = TRUE
+      ),
       `y-grid` = "on",
       `y-grid-format` = "0,0.[00]",
       `y-grid-labels` = "inside",
       `y-grid-label-align` = "right",
-      `labeling` = "off",
+      yAxisLabels = list(
+        enabled = TRUE,
+        alignment = "right",
+        placement = "inside"
+      ),
+      labeling = "off",
       `label-colors` = "false",
-      `show-tooltips` = "true"
+      categoryLabels = list(
+        enabled = TRUE,
+        position = "color-key"
+      ),
+      `show-tooltips` = "true",
+      valueLabels = list(
+        show = "hover",
+        enabled = TRUE,
+        placement = "inside"
+      )
     ),
     byline = stringr::str_c("JP/", author),
     annotate = stringr::str_c(

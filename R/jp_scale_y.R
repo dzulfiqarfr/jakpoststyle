@@ -3,7 +3,7 @@
 #' Customize the y-axis limits and major breaks of Datawrapper charts.
 #'
 #' @param chart_id Datawrapper chart id.
-#' @param y Variable mapped to the y-axis.
+#' @param y Variable mapped to the y-axis, as a string.
 #' @param scale_y_max Maximum value of the y-axis range.
 #' Defaults to the highest value in the variable.
 #' @param scale_y_min_rule Minimum value of the y-axis range.
@@ -22,7 +22,7 @@
 #' \dontrun{
 #' jp_scale_y(
 #'   chart_id = "4BcD3",
-#'   y = gapminder$lifeExp,
+#'   y = "lifeExp",
 #'   scale_y_min_rule = 0,
 #'   scale_y_round = -2, # Rounds to the nearest hundred
 #'   scale_y_increment = 20
@@ -30,33 +30,69 @@
 #' }
 #'
 #' @export
-jp_scale_y <- function(chart_id, y, scale_y_max = max(y),
-                       scale_y_min_rule = "min", scale_y_round,
-                       scale_y_increment
+jp_scale_y <- function(
+  chart_id,
+  y,
+  scale_y_max = max(y),
+  scale_y_min_rule = "min",
+  scale_y_round,
+  scale_y_increment
 ) {
 
+  # Chart type
+  chart_type <- DatawRappr::dw_retrieve_chart_metadata(chart_id)$content$type
+
+
+  # Chart type libraries
+  line_type <- c("d3-lines", "d3-area")
+  col_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
+
+
+  # Variable mapped to the y-axis
+  scale_y_var <- DatawRappr::dw_data_from_chart(chart_id)[[y]]
+
+
   # Rules for y-axis
-  y_axis_range <- c(
+  range <- c(
     if (scale_y_min_rule == "truncated") {
-      round((3 * min(y) - scale_y_max) / 2, digits = scale_y_round)
+      round((3 * min(scale_y_var) - scale_y_max) / 2, digits = scale_y_round)
     } else if (scale_y_min_rule == "min") {
-      round(min(y), digits = scale_y_round)
+      round(min(scale_y_var), digits = scale_y_round)
     } else {
       scale_y_min_rule
     },
     round(scale_y_max, scale_y_round)
   )
 
+
+  # Custom range and ticks for line chart
+  scale_y_line <- list(
+    `custom-range-y` = range,
+    `custom-ticks-y` = stringr::str_c(
+      seq(range[1], range[2], by = scale_y_increment),
+      collapse = ", "
+    )
+  )
+
+
+  # Custom range and ticks for column chart
+  scale_y_col <- list(
+    `custom-range` = range,
+    `custom-ticks` = stringr::str_c(
+      seq(range[1], range[2], by = scale_y_increment),
+      collapse = ", "
+    )
+  )
+
+
   # Modify y-axis
   DatawRappr::dw_edit_chart(
     chart_id = chart_id,
-    visualize = list(
-      `custom-range-y` = y_axis_range,
-      `custom-ticks-y` = stringr::str_c(
-        seq(y_axis_range[1], y_axis_range[2], by = scale_y_increment),
-        collapse = ", "
-      )
-    ),
+    visualize = if (chart_type %in% line_type) {
+      scale_y_line
+    } else {
+      scale_y_col
+    },
     theme = "datawrapper",
     language = "en-US"
   )

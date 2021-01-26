@@ -16,7 +16,7 @@ test_that("Y-axis scale has been successfully modified", {
   expect_output(
     jp_scale_y(
       chart_id,
-      y = x[2],
+      y = "val",
       scale_y_max = 20,
       scale_y_min_rule = 0,
       scale_y_increment = 5

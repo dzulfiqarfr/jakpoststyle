@@ -16,7 +16,7 @@ jp_scale_y(
 \arguments{
 \item{chart_id}{Datawrapper chart id.}
 
-\item{y}{Variable mapped to the y-axis.}
+\item{y}{Variable mapped to the y-axis, as a string.}
 
 \item{scale_y_max}{Maximum value of the y-axis range.
 Defaults to the highest value in the variable.}
@@ -39,7 +39,7 @@ Customize the y-axis limits and major breaks of Datawrapper charts.
 \dontrun{
 jp_scale_y(
   chart_id = "4BcD3",
-  y = gapminder$lifeExp,
+  y = "lifeExp",
   scale_y_min_rule = 0,
   scale_y_round = -2, # Rounds to the nearest hundred
   scale_y_increment = 20

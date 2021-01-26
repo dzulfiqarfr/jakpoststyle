@@ -14,11 +14,11 @@ Witzenberger](https://github.com/munichrocker).
 
 The functions:
 
--   `jakpost_style` adds a chart description, byline and The Jakarta
+-   `jakpost_style()` adds a chart description, byline and The Jakarta
     Post’s logo;  
--   `jp_scale_y` modifies the y-axis elements, including truncating the
-    scale; and  
--   `jp_covid_annotation` creates COVID-19 text and line annotations.
+-   `jp_scale_y()` modifies the y-axis elements, including truncating
+    the scale; and  
+-   `jp_covid_annotation()` creates COVID-19 text and line annotations.
 
 ## Installation
 
@@ -65,9 +65,9 @@ jp_covid_annotation(
 )
 ```
 
-<img src="figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
+<img src="https://raw.githubusercontent.com/dzulfiqarfr/jakpoststyle/main/figures/idn_manufacturing_plot.png" style="border-radius:10%">
 
-## Note
+# Note
 
 The package is optimized for line and column charts. Optimization for
 other chart types will, hopefully, follow in the future.

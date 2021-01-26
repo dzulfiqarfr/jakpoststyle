@@ -44,7 +44,7 @@ jp_covid_annotation <- function(
   # COVID-19 text annotation
   text_covid <- list(
     list(
-      x = "2020/03",
+      x = date,
       y =  covid_text_y,
       bg = FALSE,
       dx = 5,
