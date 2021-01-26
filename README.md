@@ -49,7 +49,7 @@ jakpost_style(
 # Modify the y-axis
 jp_scale_y(
   chart_id,
-  y = manufacturing_cleaned$growth,
+  y = "growth",
   scale_y_max = 6,
   scale_y_min_rule = "truncated",
   scale_y_increment = 3
@@ -65,7 +65,7 @@ jp_covid_annotation(
 )
 ```
 
-<img src="https://raw.githubusercontent.com/dzulfiqarfr/jakpoststyle/main/figures/idn_manufacturing_plot.png" style="border-radius:10%">
+<img src="figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
 
 # Note
 
