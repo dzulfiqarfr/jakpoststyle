@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# jakpoststyle <img src="logo/jakpoststyle_hexsticker.png" align="right" height="140"/>
+# jakpoststyle <img src="logo/jakpoststyle_logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
 
