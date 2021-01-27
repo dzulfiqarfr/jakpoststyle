@@ -65,9 +65,9 @@ jp_covid_annotation(
 )
 ```
 
-<img src="figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
+<img src="figures/idn_manufacturing_plot.png" width="50%" style="display: block; margin: auto;" />
 
-# Note
+## Note
 
 The package is optimized for line and column charts. Optimization for
 other chart types will, hopefully, follow in the future.

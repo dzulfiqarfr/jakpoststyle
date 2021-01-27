@@ -29,6 +29,25 @@ jakpost_style <- function(
   ...
 ) {
 
+  # Chart type
+  chart_type <- DatawRappr::dw_retrieve_chart_metadata(chart_id)$content$type
+
+
+  # Chart type libraries
+  line_type <- c("d3-lines", "d3-area")
+  col_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
+
+  # Warning for other chart types
+  if (!any(chart_type %in% c(line_type, col_type))) {
+    warning(
+      stringr::str_c(
+        "jakpost_style() is not optimized for ",
+        chart_type,
+        ". Some features may not work."
+      )
+    )
+  }
+
   # Custom theme
   DatawRappr::dw_edit_chart(
     chart_id = chart_id,

@@ -10,8 +10,9 @@ knitr::opts_chunk$set(
   comment = "#>",
   message = F,
   fig.path = "man/figures/README-",
-  fig.width = 6, 
-  fig.asp = 0.618, 
+  fig.width = 4, 
+  fig.asp = 0.618,
+  out.width = "50%",
   fig.align = "center"
 )
 ```
@@ -77,7 +78,7 @@ jp_covid_annotation(
 knitr::include_graphics("figures/idn_manufacturing_plot.png")
 ```
 
-# Note
+## Note
 
 The package is optimized for line and column charts. Optimization for other chart types will, hopefully, follow in the future.
 

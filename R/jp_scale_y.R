@@ -47,6 +47,8 @@ jp_scale_y <- function(
   line_type <- c("d3-lines", "d3-area")
   col_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
 
+  # Stop for other chart types
+  stopifnot(chart_type %in% c(line_type, col_type))
 
   # Variable mapped to the y-axis
   scale_y_var <- DatawRappr::dw_data_from_chart(chart_id)[[y]]
