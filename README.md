@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# jakpoststyle
+# jakpoststyle <img src="logo/jakpoststyle_hexsticker.png" align="right" height="139"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -66,6 +66,15 @@ jp_covid_annotation(
 ```
 
 <img src="figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
+
+## R Markdown template
+
+The package also includes an R Markdown template that describes the
+typical workflow when creating charts on Datawrapper through R.
+
+``` r
+rmarkdown::draft("my_project.Rmd", template = "jakpoststyle", package = "jakpoststyle")
+```
 
 ## Note
 

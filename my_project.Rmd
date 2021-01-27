@@ -1,0 +1,102 @@
+---
+title: "Untitled"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = T,
+  message = F,
+  fig.width = 4, 
+  fig.asp = 0.618,
+  fig.align = "center"
+)
+```
+
+## Setup
+
+```{r library}
+library(tidyverse)
+library(DatawRappr)
+library(jakpoststyle)
+```
+
+## Data
+
+```{r data}
+raw <- iris
+```
+
+## Datawrapper
+
+Authorize the token to access the Datawrapper API.
+
+```{r api key}
+api_key <- ""
+
+# Adds the key to your R environment, overwriting the existing key
+datawrapper_auth(api_key, overwrite = T)
+```
+
+Create the chart and upload the data.
+
+```{r chart}
+# Create the chart
+chart <- dw_create_chart(
+  title = "",
+  type = "",
+  theme = "datawrapper"
+)
+
+# Obtain chart id
+chart_id <- chart$id
+
+# Upload the data
+dw_data_to_chart(raw, chart_id)
+```
+
+## Apply custom theme
+
+Position the y-axis on the right side and add description, byline, source and logo.
+
+```{r jakpoststyle}
+jakpost_style(
+  chart_id,
+  author = "",
+  intro = "",
+  source_name = "",
+  source_url = ""
+)
+```
+
+Modify the y-axis.
+
+```{r y-axis}
+jp_scale_y(
+  chart_id,
+  y = ""
+)
+```
+
+Add COVID-19 pandemic annotation.
+
+```{r pandemic annotation}
+jp_covid_annotation(
+  chart_id
+)
+```
+
+## Preview chart
+
+```{r preview}
+dw_export_chart(chart_id)
+```
+
+## Publish chart
+
+```{r publish}
+dw_publish_chart(chart_id)
+```
