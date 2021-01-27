@@ -4,7 +4,7 @@
 \alias{jakpost_style}
 \title{Apply The Jakarta Post theme to Datawrapper charts}
 \usage{
-jakpost_style(chart_id, author, footnote = "", ...)
+jakpost_style(chart_id, author, footnote = "", logo = TRUE, ...)
 }
 \arguments{
 \item{chart_id}{Datawrapper chart id.}
@@ -12,6 +12,8 @@ jakpost_style(chart_id, author, footnote = "", ...)
 \item{author}{Byline of the chart.}
 
 \item{footnote}{Footnote to the chart.}
+
+\item{logo}{The Jakarta Post's logo. Defaults to \code{TRUE}.}
 
 \item{...}{Other arguments passed on to \code{\link[DatawRappr]{dw_edit_chart}},
 including \code{intro}, \code{source_name} and \code{source_url} for chart subtitle,
