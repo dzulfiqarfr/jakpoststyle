@@ -81,7 +81,7 @@ knitr::include_graphics("figures/idn_manufacturing_plot.png")
 
 The package also includes an R Markdown template that describes the typical workflow when creating charts on Datawrapper through R.
 
-```{r R Markdown template}
+```{r R Markdown template, eval = F}
 rmarkdown::draft("my_project.Rmd", template = "jakpoststyle", package = "jakpoststyle")
 ```
 
