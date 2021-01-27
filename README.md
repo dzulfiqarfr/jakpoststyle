@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# jakpoststyle <img src="logo/jakpoststyle_hexsticker.png" align="right" height="139"/>
+# jakpoststyle <img src="logo/jakpoststyle_hexsticker.png" align="right" height="140"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
