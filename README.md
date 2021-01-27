@@ -65,7 +65,7 @@ jp_covid_annotation(
 )
 ```
 
-<img src="figures/idn_manufacturing_plot.png" width="50%" style="display: block; margin: auto;" />
+<img src="figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
 
 ## Note
 

@@ -50,7 +50,15 @@ jp_covid_annotation <- function(
   col_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
 
   # Stop for other chart types
-  stopifnot(chart_type %in% c(line_type, col_type))
+  if (!any(chart_type %in% c(line_type, col_type))) {
+    stop(
+      stringr::str_c(
+        "Unable to apply jp_covid_annotation() to ",
+        chart_type,
+        ". The function is not optimized for this chart type."
+      )
+    )
+  }
 
   # COVID-19 text annotation
   text_covid <- list(

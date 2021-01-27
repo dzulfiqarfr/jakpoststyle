@@ -12,7 +12,6 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   fig.width = 4, 
   fig.asp = 0.618,
-  out.width = "50%",
   fig.align = "center"
 )
 ```

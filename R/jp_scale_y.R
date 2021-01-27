@@ -48,7 +48,15 @@ jp_scale_y <- function(
   col_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
 
   # Stop for other chart types
-  stopifnot(chart_type %in% c(line_type, col_type))
+  if (!any(chart_type %in% c(line_type, col_type))) {
+    stop(
+      stringr::str_c(
+        "Unable to apply jp_scale_y() to ",
+        chart_type,
+        ". The function is not optimized for this chart type."
+      )
+    )
+  }
 
   # Variable mapped to the y-axis
   scale_y_var <- DatawRappr::dw_data_from_chart(chart_id)[[y]]
