@@ -5,10 +5,11 @@
 #' @param chart_id Datawrapper chart id.
 #' @param author Byline of the chart.
 #' @param footnote Footnote to the chart.
-#' @param logo The Jakarta Post's logo. Defaults to `TRUE`.
+#' @param logo Logical. Defaults to `TRUE`.
+#'   When `FALSE`, it removes The Jakarta Post's logo from the chart.
 #' @param ... Other arguments passed on to \code{\link[DatawRappr]{dw_edit_chart}},
-#' including `intro`, `source_name` and `source_url` for chart subtitle,
-#' source and source's link, respectively.
+#'   including `intro`, `source_name` and `source_url` for chart subtitle,
+#'   source and source's link, respectively.
 #'
 #' @seealso \code{\link[DatawRappr]{dw_edit_chart}} for the underlying function.
 #'

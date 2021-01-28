@@ -13,7 +13,8 @@ jakpost_style(chart_id, author, footnote = "", logo = TRUE, ...)
 
 \item{footnote}{Footnote to the chart.}
 
-\item{logo}{The Jakarta Post's logo. Defaults to \code{TRUE}.}
+\item{logo}{Logical. Defaults to \code{TRUE}.
+When \code{FALSE}, it removes The Jakarta Post's logo from the chart.}
 
 \item{...}{Other arguments passed on to \code{\link[DatawRappr]{dw_edit_chart}},
 including \code{intro}, \code{source_name} and \code{source_url} for chart subtitle,

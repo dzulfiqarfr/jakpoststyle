@@ -3,20 +3,20 @@
 #' Customize the y-axis limits and major breaks of Datawrapper charts.
 #'
 #' @param chart_id Datawrapper chart id.
-#' @param y Variable mapped to the y-axis, as a string.
-#' @param scale_y_max Maximum value of the y-axis range.
-#' Defaults to the highest value in the variable.
-#' @param scale_y_min_rule Minimum value of the y-axis range.
-#' Defaults to "min", which sets the lowest value in the variable
-#' as the start of the scale. "truncated" leaves some one-third space
-#' of the plot area empty between the lowest value in the variable
-#' and the start of the scale.
+#' @param y String. Name of variable mapped to the y-axis.
+#' @param scale_y_max Integer. The maximum value of the y-axis range.
+#'   Defaults to the highest value in the variable.
+#' @param scale_y_min_rule Minimum value of the y-axis range,
+#'   either as an integer or a string. Defaults to "min", which takes
+#'   the lowest value in the variable. "truncated" leaves some
+#'   one-third space of the plot area empty between the lowest value
+#'   in the variable and the start of the scale.
 #' @param scale_y_round Number of decimal places for all values in the y-axis.
-#' Negative values round to a power of ten.
+#'   Negative values round to a power of ten.
 #' @param scale_y_increment Increment of the y-axis breaks.
 #'
 #' @seealso \code{\link[DatawRappr]{dw_edit_chart}} and \code{\link[base]{round}}
-#' for the underlying functions.
+#'   for the underlying functions.
 #'
 #' @examples
 #' \dontrun{

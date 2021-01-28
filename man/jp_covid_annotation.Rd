@@ -18,21 +18,24 @@ jp_covid_annotation(
 \arguments{
 \item{chart_id}{Datawrapper chart id.}
 
-\item{date}{Date of first coronavirus case(s) being reported.
-Defaults to "2020/03", in which Indonesia reported its first two confirmed cases.}
+\item{date}{Position of the line and text annotations on the x-axis.
+Defaults to "2020/03", in which Indonesia reported its
+first two confirmed coronavirus cases.}
 
-\item{covid_text_y}{Position of the COVID-19 text annotation on the y-axis.}
+\item{covid_text_y}{Position of the COVID-19 text annotation
+on the y-axis.}
 
 \item{text_color}{Color of the text annotation. Defaults to "#888".}
 
-\item{text_bold}{Make the text annotation bold. Defaults to \code{FALSE}.}
+\item{text_bold}{Logical. Defaults to \code{FALSE}. When \code{TRUE},
+it makes the text annotation bold.}
 
 \item{line_color}{Color of the line annotation. Defaults to "#888".}
 
 \item{line_type}{Line type for the line annotation.
 Defaults to "solid". "dotted" gives dotted line. "dashed" gives dashed line.}
 
-\item{line_width}{Width of the line annotation, ranging from 1 to 3.
+\item{line_width}{Integer. Width of the line annotation, ranging from 1 to 3.
 Defaults to 1.}
 }
 \description{
