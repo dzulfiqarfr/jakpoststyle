@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# jakpoststyle <img src="logo/jakpoststyle_logo.png" align="right" height="140"/>
+# jakpoststyle <img src="man/figures/jakpoststyle_logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -65,7 +65,10 @@ jp_covid_annotation(
 )
 ```
 
-<img src="figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
+<br>
+<p align="center">
+<img src="man/figures/idn_manufacturing_plot.png" title="fig:" style="width:70.0%" alt="Demo: Indonesian manufacturing sector’s output" />
+</p>
 
 ## R Markdown template
 

@@ -19,6 +19,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+<style>
+body {
+text-align: justify
+}
+</style>
+
 ## Overview
 
 The main goal of **jakpoststyle** is to make editing [Datawrapper](https://www.datawrapper.de/) charts easier by taking care of repetitive tasks.
@@ -45,14 +51,11 @@ where *c* is the minimum value in the variable mapped to the y-axis and *a* is t
 
 The following chart on Indonesian manufacturing sector's output uses the golden ratio.
 
-```{r demo chart, echo = F}
-library(here)
-
-path <- here::here("figures", "idn_manufacturing_plot.png")
-
-knitr::include_graphics(path)
-```
-
+<br>
+<p align="center">
+![Demo: Indonesian manufacturing sector's output](figures/idn_manufacturing_plot.png){width=70%}
+</p>
+<br>
 
 To check whether it has followed the golden ratio, we can use the following formula:
 
