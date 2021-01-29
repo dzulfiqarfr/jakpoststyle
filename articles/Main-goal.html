@@ -89,6 +89,11 @@
 
     
     
+<style>
+body {
+text-align: justify
+}
+</style>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
@@ -106,7 +111,9 @@
 <p><span class="math display">\[b = \frac{3c - a}{2}\]</span></p>
 <p>where <em>c</em> is the minimum value in the variable mapped to the y-axis and <em>a</em> is the maximum value of the scale. The function then rounds the number. You can customize the rounding with the <code>scale_y_round</code> argument.</p>
 <p>The following chart on Indonesian manufacturing sector’s output uses the golden ratio.</p>
-<p><img src="../figures/idn_manufacturing_plot.png" width="70%" style="display: block; margin: auto;"></p>
+<br><p align="center">
+<img src="figures/idn_manufacturing_plot.png" title="fig:" style="width:70.0%" alt="Demo: Indonesian manufacturing sector’s output"></p>
+<p><br></p>
 <p>To check whether it has followed the golden ratio, we can use the following formula:</p>
 <p><span class="math display">\[x = \frac{c - b}{a - b}\]</span></p>
 <p>where the minimum value in the variable is -6.19, the minimum value of the scale is -12 and the maximum value of the scale is 6. This leaves some 32.28 percent of the plot area at the bottom empty.</p>
