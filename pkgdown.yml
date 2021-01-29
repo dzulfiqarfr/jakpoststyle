@@ -1,0 +1,10 @@
+pandoc: 2.7.3
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  Main-goal: Main-goal.html
+last_built: 2021-01-29T17:11Z
+urls:
+  reference: https://dzulfiqarfr.github.io/jakpoststyle//reference
+  article: https://dzulfiqarfr.github.io/jakpoststyle//articles
+
