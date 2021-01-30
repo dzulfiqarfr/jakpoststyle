@@ -53,7 +53,7 @@ The following chart on Indonesian manufacturing sector's output uses the golden 
 
 <br>
 <p align="center">
-![Demo: Indonesian manufacturing sector's output](figures/idn_manufacturing_plot.png){width=70%}
+![Demo: Indonesian manufacturing sector's output](figures/idn_manufacturing_plot.png)
 </p>
 <br>
 

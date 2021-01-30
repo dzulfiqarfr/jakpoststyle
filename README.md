@@ -4,6 +4,10 @@
 # jakpoststyle <img src="man/figures/jakpoststyle_logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge.svg)](https://codecov.io/gh/dzulfiqarfr/jakpoststyle?branch=main)
+
 <!-- badges: end -->
 
 The **jakpoststyle** package makes it easy to customize
@@ -67,7 +71,8 @@ jp_covid_annotation(
 
 <br>
 <p align="center">
-<img src="man/figures/idn_manufacturing_plot.png" title="fig:" style="width:70.0%" alt="Demo: Indonesian manufacturing sector’s output" />
+![Demo: Indonesian manufacturing sector’s
+output](man/figures/idn_manufacturing_plot.png "fig:")
 </p>
 
 ## R Markdown template

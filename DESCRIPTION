@@ -1,5 +1,5 @@
 Package: jakpoststyle
-Title: Apply The Jakarta Post's Unofficial Datawrapper Chart Template
+Title: R Package to Apply The Jakarta Post Custom Theme to Datawrapper Charts
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Dzulfiqar",
@@ -30,6 +30,7 @@ Suggests:
     knitr,
     rmarkdown,
     pkgdown,
-    here
+    here,
+    covr
 Config/testthat/edition: 3
 VignetteBuilder: knitr

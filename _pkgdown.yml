@@ -1,1 +1,13 @@
 url: https://dzulfiqarfr.github.io/jakpoststyle/
+
+template:
+  opengraph:
+    image:
+      src: man/figures/idn_manufacturing_plot.png
+    twitter:
+      creator: "@dzulfiqarfr"
+      card: summary_large_image
+
+navbar:
+  components:
+    home: ~
