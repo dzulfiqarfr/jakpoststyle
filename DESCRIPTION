@@ -23,14 +23,15 @@ Imports:
     dplyr,
     DatawRappr,
     lubridate
-Remotes:
+Remotes: 
     github::munichrocker/DatawRappr
 Suggests: 
-    testthat (>= 3.0.0),
-    knitr,
-    rmarkdown,
-    pkgdown,
+    covr,
     here,
-    covr
+    httptest,
+    knitr,
+    pkgdown,
+    rmarkdown,
+    testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr

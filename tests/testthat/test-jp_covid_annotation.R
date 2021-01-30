@@ -1,24 +1,28 @@
-test_that("COVID-19 annotation has been successfully added", {
+httptest::with_mock_api({
 
-  x <- dplyr::tibble(
-    month = seq(
-      lubridate::ymd("2020-01-01"),
-      lubridate::ymd("2020-10-01"),
-      by = "month"
-    ),
-    val = seq(2, 20, by = 2)
-  )
+  test_that("COVID-19 annotation has been successfully added", {
 
-  chart_id <- "SbzoE"
+    x <- dplyr::tibble(
+      month = seq(
+        lubridate::ymd("2020-01-01"),
+        lubridate::ymd("2020-10-01"),
+        by = "month"
+      ),
+      val = seq(2, 20, by = 2)
+    )
 
-  DatawRappr::dw_data_to_chart(x, chart_id)
+    chart_id <- "SbzoE"
 
-  expect_output(
-    jp_covid_annotation(
-      chart_id,
-      covid_text_y = 20
-    ),
-    stringr::str_c("Chart ", chart_id, " succesfully updated.")
-  )
+    DatawRappr::dw_data_to_chart(x, chart_id)
+
+    expect_output(
+      jp_covid_annotation(
+        chart_id,
+        covid_text_y = 20
+      ),
+      stringr::str_c("Chart ", chart_id, " succesfully updated.")
+    )
+
+  })
 
 })

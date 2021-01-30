@@ -8,6 +8,7 @@
 [![Codecov test
 coverage](https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge.svg)](https://codecov.io/gh/dzulfiqarfr/jakpoststyle?branch=main)
 
+[![R-CMD-check](https://github.com/dzulfiqarfr/jakpoststyle/workflows/R-CMD-check/badge.svg)](https://github.com/dzulfiqarfr/jakpoststyle/actions)
 <!-- badges: end -->
 
 The **jakpoststyle** package makes it easy to customize
@@ -69,10 +70,11 @@ jp_covid_annotation(
 )
 ```
 
-<p align="center">
-![Demo: Indonesian manufacturing sector’s
-output](man/figures/idn_manufacturing_plot.png "fig:")
-</p>
+``` r
+knitr::include_graphics("man/figures/idn_manufacturing_plot.png")
+```
+
+<img src="man/figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
 
 ## R Markdown template
 
