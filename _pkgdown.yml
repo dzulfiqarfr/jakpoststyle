@@ -1,9 +1,14 @@
 url: https://dzulfiqarfr.github.io/jakpoststyle/
 
+home:
+  title: jakpoststyle
+  description: Edit Datawrapper chart properties with an unofficial custom theme
+      of The Jakarta Post.
+
 template:
   opengraph:
     image:
-      src: man/figures/idn_manufacturing_plot.png
+      src: man/figures/github_social_media_preview.png
     twitter:
       creator: "@dzulfiqarfr"
       card: summary_large_image
