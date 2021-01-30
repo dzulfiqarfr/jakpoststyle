@@ -1,5 +1,7 @@
 ---
 title: "Main goal"
+description: "Save users from hassle of repetitive tasks when working with Datawrapper charts"
+author: "Dzulfiqar Fathur Rahman"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Main-goal}

@@ -12,6 +12,8 @@ template:
     twitter:
       creator: "@dzulfiqarfr"
       card: summary_large_image
+  params:
+    ganalytics: G-6WBFVWRM8L
 
 navbar:
   components:
