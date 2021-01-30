@@ -69,7 +69,6 @@ jp_covid_annotation(
 )
 ```
 
-<br>
 <p align="center">
 ![Demo: Indonesian manufacturing sector’s
 output](man/figures/idn_manufacturing_plot.png "fig:")
