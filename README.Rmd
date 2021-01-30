@@ -19,10 +19,8 @@ knitr::opts_chunk$set(
 # jakpoststyle <img src="man/figures/jakpoststyle_logo.png" align="right" height="140"/>
 
 <!-- badges: start -->
-
-[![Codecov test coverage](https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge.svg)](https://codecov.io/gh/dzulfiqarfr/jakpoststyle?branch=main)
-
 [![R-CMD-check](https://github.com/dzulfiqarfr/jakpoststyle/workflows/R-CMD-check/badge.svg)](https://github.com/dzulfiqarfr/jakpoststyle/actions)
+[![Codecov test coverage](https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge.svg)](https://codecov.io/gh/dzulfiqarfr/jakpoststyle?branch=main)
 <!-- badges: end -->
 
 The **jakpoststyle** package makes it easy to customize [Datawrapper](https://www.datawrapper.de/) charts (created with a free plan account) using a custom theme of The Jakarta Post. It builds on the **DatawRappr** package developed by [Benedict Witzenberger](https://github.com/munichrocker).
@@ -75,8 +73,8 @@ jp_covid_annotation(
   line_type = "dashed"
 )
 ```
-
-```{r Demo chart}
+<br>
+```{r Demo chart, echo = F}
 knitr::include_graphics("man/figures/idn_manufacturing_plot.png")
 ```
 
