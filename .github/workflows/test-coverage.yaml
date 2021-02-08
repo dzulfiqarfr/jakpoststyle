@@ -43,6 +43,14 @@ jobs:
           remotes::install_cran("covr")
         shell: Rscript {0}
 
+      - name: Store key for Datawrapper API
+        env:
+          DW_KEY: ${{ secrets.DW_KEY }}
+        run: |
+          DW_KEY <- Sys.getenv("DW_KEY")
+          DatawRappr::datawrapper_auth(DW_KEY, overwrite = T)
+        shell: Rscript {0}
+
       - name: Test coverage
         run: covr::codecov()
         shell: Rscript {0}
