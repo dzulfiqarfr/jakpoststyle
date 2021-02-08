@@ -7,7 +7,7 @@
 jp_scale_y(
   chart_id,
   y,
-  scale_y_max = max(y),
+  scale_y_max = max(y, na.rm = T),
   scale_y_min_rule = "min",
   scale_y_round,
   scale_y_increment

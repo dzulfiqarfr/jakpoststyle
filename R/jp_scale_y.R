@@ -33,7 +33,7 @@
 jp_scale_y <- function(
   chart_id,
   y,
-  scale_y_max = max(y),
+  scale_y_max = max(y, na.rm = T),
   scale_y_min_rule = "min",
   scale_y_round,
   scale_y_increment
@@ -65,9 +65,9 @@ jp_scale_y <- function(
   # Rules for y-axis
   range <- c(
     if (scale_y_min_rule == "truncated") {
-      round((3 * min(scale_y_var) - scale_y_max) / 2, digits = scale_y_round)
+      round((3 * min(scale_y_var, na.rm = T) - scale_y_max) / 2, digits = scale_y_round)
     } else if (scale_y_min_rule == "min") {
-      round(min(scale_y_var), digits = scale_y_round)
+      round(min(scale_y_var, na.rm = T), digits = scale_y_round)
     } else {
       scale_y_min_rule
     },

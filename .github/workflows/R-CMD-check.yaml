@@ -26,5 +26,10 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
         shell: Rscript {0}
       - name: Check
-        run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
+        env:
+          DW_KEY: ${{ secrets.DW_KEY }}
+        run: |
+          DW_KEY <- Sys.getenv("DW_KEY")
+          DatawRappr::datawrapper_auth(DW_KEY, overwrite = T)
+          rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
         shell: Rscript {0}

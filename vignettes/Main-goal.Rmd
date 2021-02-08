@@ -31,7 +31,7 @@ text-align: justify
 
 The main goal of **jakpoststyle** is to make editing [Datawrapper](https://www.datawrapper.de/) charts easier by taking care of repetitive tasks.
 
-When creating charts, tasks such as adding a logo or moving the y-axis to the right side of the plot often get repeated. This package prevents such tasks from taking up your time.
+When creating charts, tasks such as adding a logo, moving the y-axis to the right side of the plot or calculating the scale limits often get repeated. This package prevents such tasks from taking up your time.
 
 With a free plan Datawrapper account, we cannot have a custom theme that places a logo on the chart. So we have to add the logo as an image with some HTML code. This means copying and pasting the code every time we create a chart. The `jakpost_style()` function takes care of this by adding The Jakarta Post's logo to the chart by default.[^1]
 
@@ -41,7 +41,7 @@ With a free plan Datawrapper account, we cannot have a custom theme that places 
 
 The `jakpost_style()` function automatically puts the y-axis on the right side of the plot. This is helpful because people mostly read visualizations of time series data from left to right, namely from values in the earliest period to the ones in the most recent period of observation. These are the values of interest.
 
-The `jp_scale_y()` function helps us break the y-axis scale using the golden ratio outlined by Francis Gagnon. That is, one-third of the plot area at the bottom should be empty for a line chart that doesn't start at zero. 
+The `jp_scale_y()` function helps us break the y-axis scale using the golden ratio outlined by Francis Gagnon. That is, one-third of the plot area at the bottom should be empty for a chart that doesn't start at zero -- with an exception for bar or column charts in some cases. 
 
 This ratio balances the need to show (small) variations in the data and avoid the misperception of the data reaching ground zero. 
 

@@ -27,7 +27,6 @@ Remotes:
 Suggests: 
     covr,
     here,
-    httptest,
     knitr,
     pkgdown,
     rmarkdown,
