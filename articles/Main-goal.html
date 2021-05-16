@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">jakpoststyle</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -67,6 +67,9 @@
       <a href="../articles/Main-goal.html">Main goal</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -110,30 +113,30 @@ text-align: justify
 <a href="#overview" class="anchor"></a>Overview</h2>
 <p>The main goal of <strong>jakpoststyle</strong> is to make editing <a href="https://www.datawrapper.de/">Datawrapper</a> charts easier by taking care of repetitive tasks.</p>
 <p>When creating charts, tasks such as adding a logo, moving the y-axis to the right side of the plot or calculating the scale limits often get repeated. This package prevents such tasks from taking up your time.</p>
-<p>With a free plan Datawrapper account, we cannot have a custom theme that places a logo on the chart. So we have to add the logo as an image with some HTML code. This means copying and pasting the code every time we create a chart. The <code><a href="../reference/jakpost_style.html">jakpost_style()</a></code> function takes care of this by adding The Jakarta Post’s logo to the chart by default.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>With a free plan Datawrapper account, we cannot have a custom theme that places a logo on the chart. So we have to add the logo as an image with some HTML code. This means copying and pasting the code every time we create a chart. The <code><a href="../reference/jp_dw_theme.html">jp_dw_theme()</a></code> function takes care of this by adding The Jakarta Post’s logo to the chart by default.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 </div>
 <div id="y-axis" class="section level2">
 <h2 class="hasAnchor">
 <a href="#y-axis" class="anchor"></a>Y-axis</h2>
-<p>The <code><a href="../reference/jakpost_style.html">jakpost_style()</a></code> function automatically puts the y-axis on the right side of the plot. This is helpful because people mostly read visualizations of time series data from left to right, namely from values in the earliest period to the ones in the most recent period of observation. These are the values of interest.</p>
-<p>The <code><a href="../reference/jp_scale_y.html">jp_scale_y()</a></code> function helps us break the y-axis scale using the golden ratio outlined by Francis Gagnon. That is, one-third of the plot area at the bottom should be empty for a chart that doesn’t start at zero – with an exception for bar or column charts in some cases.</p>
+<p>The <code><a href="../reference/jp_dw_theme.html">jp_dw_theme()</a></code> function automatically puts the y-axis on the right side of the plot. This is helpful because people mostly read visualizations of time series data from left to right, namely from values in the earliest period to the ones in the most recent period of observation. These are the values of interest.</p>
+<p>The <code><a href="../reference/jp_dw_scale_y.html">jp_dw_scale_y()</a></code> function helps us break the y-axis scale using the golden ratio outlined by Francis Gagnon. That is, one-third of the plot area at the bottom should be empty for a chart that doesn’t start at zero – with an exception for bar or column charts in some cases.</p>
 <p>This ratio balances the need to show (small) variations in the data and avoid the misperception of the data reaching ground zero.</p>
 <p>To that end, the function uses the following formula from Gagnon to find the minimum value of the scale under the hood:</p>
 <p><span class="math display">\[b = \frac{3c - a}{2}\]</span></p>
-<p>where <em>c</em> is the minimum value in the variable mapped to the y-axis and <em>a</em> is the maximum value of the scale. The function then rounds the number. You can customize the rounding with the <code>scale_y_round</code> argument.</p>
-<p>The following chart on Indonesian manufacturing sector’s output uses the golden ratio.</p>
-<br><p align="center">
-<img src="figures/idn_manufacturing_plot.png" title="fig:" alt="Demo: Indonesian manufacturing sector’s output"></p>
-<p><br></p>
-<p>To check whether it has followed the golden ratio, we can use the following formula:</p>
+<p>where <em>c</em> is the minimum value in the variable mapped to the y-axis and <em>a</em> is the maximum value of the scale. The function then rounds the number.</p>
+<p>The following chart on Indonesian manufacturing sector’s growth uses the golden ratio.</p>
+<iframe title="Pandemic slowdown" aria-label="Interactive line chart" id="datawrapper-chart-WQfwE" src="https://datawrapper.dwcdn.net/WQfwE/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400">
+</iframe>
+<script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script><p>To check whether it has followed the golden ratio, we can use the following formula:</p>
 <p><span class="math display">\[x = \frac{c - b}{a - b}\]</span></p>
 <p>where the minimum value in the variable is -6.19, the minimum value of the scale is -12 and the maximum value of the scale is 6. This leaves some 32.28 percent of the plot area at the bottom empty.</p>
-<p>However, the <code><a href="../reference/jp_scale_y.html">jp_scale_y()</a></code> function sets the minimum value in the variable as the minimum value of the scale by default. It also accepts an integer to manually set the minimum value of the scale.</p>
+<p>However, the <code><a href="../reference/jp_dw_scale_y.html">jp_dw_scale_y()</a></code> function sets the minimum value in the variable as the minimum value of the scale by default. It also accepts an integer to manually set the minimum value of the scale.</p>
 </div>
 <div id="covid-19-annotations" class="section level2">
 <h2 class="hasAnchor">
 <a href="#covid-19-annotations" class="anchor"></a>COVID-19 annotations</h2>
-<p>The <code><a href="../reference/jp_covid_annotation.html">jp_covid_annotation()</a></code> makes it easy to add line and text annotations for COVID-19 pandemic. By default, it places the annoations on the x-axis based on the pandemic timeline for Indonesia. The country reported its first two confirmed coronavirus cases on March 2. However, you can always customize the position of the annotations using the <code>date</code> argument.</p>
+<p>The <code><a href="../reference/jp_dw_c19_annotation.html">jp_dw_c19_annotation()</a></code> makes it easy to add line and text annotations to highlight the COVID-19 pandemic. By default, it places the annoations on the x-axis based on the timeline in Indonesia. The country reported its first two confirmed coronavirus cases on March 2. However, you can always customize the position of the annotations using the <code>x_position</code> argument.</p>
 </div>
 <div id="resources" class="section level2">
 <h2 class="hasAnchor">
@@ -143,7 +146,7 @@ text-align: justify
 <div class="footnotes">
 <hr>
 <ol>
-<li id="fn1"><p>The Jakarta Post’s actually has a custom plan Datawrapper account, which lets users to have a custom theme and thus puts a logo on the chart. However, there has yet to be any custom theme and an official design guide for web-based charts. So, for the time being, we will adopt the common best practices for creating (static) charts.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>The Jakarta Post actually has a custom plan Datawrapper account, which lets users to have a custom theme and thus puts a logo on the chart. However, there has yet to be any theme and an official design guide for (web-based) charts.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
   </div>

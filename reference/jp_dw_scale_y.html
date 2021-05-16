@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • jakpoststyle</title>
+<title>Modify y-axis — jp_dw_scale_y • jakpoststyle</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,8 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Modify y-axis — jp_dw_scale_y" />
+<meta property="og:description" content="Customize the scale limits and breaks for a y-axis that maps a continuous variable." />
 <meta property="og:image" content="https://dzulfiqarfr.github.io/jakpoststyle/reference/figures/github_social_media_preview.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dzulfiqarfr" />
@@ -79,7 +80,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -137,18 +138,72 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Modify y-axis</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dzulfiqarfr/jakpoststyle/blob/master/R/jp_dw_scale_y.R'><code>R/jp_dw_scale_y.R</code></a></small>
+    <div class="hidden name"><code>jp_dw_scale_y.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="Main-goal.html">Main goal</a></dt>
-        <dd><p>Save users from hassle of repetitive tasks when working with Datawrapper charts</p></dt>
-      </dl>
+    <div class="ref-description">
+    <p>Customize the scale limits and breaks for a y-axis that maps a continuous variable.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>jp_dw_scale_y</span><span class='op'>(</span>
+  <span class='va'>chart_id</span>,
+  <span class='va'>y_var</span>,
+  max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>y_var</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
+  min <span class='op'>=</span> <span class='st'>"min"</span>,
+  <span class='va'>increment</span>
+<span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>chart_id</th>
+      <td><p>String. Datawrapper chart id.</p></td>
+    </tr>
+    <tr>
+      <th>y_var</th>
+      <td><p>String. The variable name mapped on the y-axis.</p></td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td><p>Integer. The upper limit of the scale. Defaults to
+the highest value in the variable.</p></td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td><p>The lower limit of the scale. Defaults to
+the lowest value in the variable. Also takes an integer and “truncated”,
+which leaves some one-third space of the plot area at the bottom empty
+for a chart that doesn’t start at zero.</p></td>
+    </tr>
+    <tr>
+      <th>increment</th>
+      <td><p>Integer. Increment of the breaks.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/DatawRappr/man/dw_edit_chart.html'>dw_edit_chart</a></code> for the underlying function.</p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>jp_dw_scale_y</span><span class='op'>(</span>
+  chart_id <span class='op'>=</span> <span class='st'>"4BcD3"</span>,
+  y_var <span class='op'>=</span> <span class='st'>"lifeExp"</span>,
+  min <span class='op'>=</span> <span class='fl'>0</span>,
+  increment <span class='op'>=</span> <span class='fl'>20</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

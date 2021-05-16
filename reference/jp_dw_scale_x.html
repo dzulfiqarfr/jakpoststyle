@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • jakpoststyle</title>
+<title>Modify x-axis — jp_dw_scale_x • jakpoststyle</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,9 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Modify x-axis — jp_dw_scale_x" />
+<meta property="og:description" content="Customize the axis tick format and add an axis line to a chart with a y-axis
+that doesn’t start at zero." />
 <meta property="og:image" content="https://dzulfiqarfr.github.io/jakpoststyle/reference/figures/github_social_media_preview.png" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@dzulfiqarfr" />
@@ -79,7 +81,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -137,18 +139,55 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Modify x-axis</h1>
+    <small class="dont-index">Source: <a href='https://github.com/dzulfiqarfr/jakpoststyle/blob/master/R/jp_dw_scale_x.R'><code>R/jp_dw_scale_x.R</code></a></small>
+    <div class="hidden name"><code>jp_dw_scale_x.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <dl>
-        <dt><a href="Main-goal.html">Main goal</a></dt>
-        <dd><p>Save users from hassle of repetitive tasks when working with Datawrapper charts</p></dt>
-      </dl>
+    <div class="ref-description">
+    <p>Customize the axis tick format and add an axis line to a chart with a y-axis
+that doesn’t start at zero.</p>
     </div>
+
+    <pre class="usage"><span class='fu'>jp_dw_scale_x</span><span class='op'>(</span><span class='va'>chart_id</span>, format <span class='op'>=</span> <span class='st'>"auto"</span>, axis_line <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>chart_id</th>
+      <td><p>String. Datawrapper chart id.</p></td>
+    </tr>
+    <tr>
+      <th>format</th>
+      <td><p>String. Defaults to “auto”. Also takes “monthly” and
+“quarterly” for date variables.</p></td>
+    </tr>
+    <tr>
+      <th>axis_line</th>
+      <td><p>Logical. Defaults to FALSE. When TRUE, adds a black axis line.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/DatawRappr/man/dw_edit_chart.html'>dw_edit_chart</a></code> for the underlying function.</p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='fu'>jp_dw_scale_x</span><span class='op'>(</span>
+  chart_id <span class='op'>=</span> <span class='st'>"4BcD3"</span>,
+  format <span class='op'>=</span> <span class='st'>"quarterly"</span>,
+  axis_line <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
+<span class='op'>}</span>
+
+</div></pre>
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

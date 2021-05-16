@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">jakpoststyle</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
       </span>
     </div>
 
@@ -67,6 +67,9 @@
       <a href="articles/Main-goal.html">Main goal</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -94,17 +97,20 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The <strong>jakpoststyle</strong> package makes it easy to customize <a href="https://www.datawrapper.de/">Datawrapper</a> charts (created with a free plan account) using a custom theme of The Jakarta Post. It builds on the <strong>DatawRappr</strong> package developed by <a href="https://github.com/munichrocker">Benedict Witzenberger</a>.</p>
-<p>The functions:</p>
+<p>The <strong>jakpoststyle</strong> package makes it easy to customize <a href="https://www.datawrapper.de/">Datawrapper</a> charts (created with a free plan account) with the theme I usually use for <a href="thejakartapost.com">The Jakarta Post</a>. It builds on the <a href="https://github.com/munichrocker/DatawRappr"><strong>DatawRappr</strong></a> package developed by Benedict Witzenberger.</p>
+<p>The functions are as follow:</p>
 <ul>
 <li>
-<code><a href="reference/jakpost_style.html">jakpost_style()</a></code> adds a chart description, byline and The Jakarta Post’s logo;<br>
+<code><a href="reference/jp_dw_theme.html">jp_dw_theme()</a></code> edits the axes, byline and layout, as well as adds the Post’s logo;<br>
 </li>
 <li>
-<code><a href="reference/jp_scale_y.html">jp_scale_y()</a></code> modifies the y-axis elements, including truncating the scale; and<br>
+<code><a href="reference/jp_dw_scale_x.html">jp_dw_scale_x()</a></code> modifies the x-axis tick format and adds an axis line;<br>
 </li>
 <li>
-<code><a href="reference/jp_covid_annotation.html">jp_covid_annotation()</a></code> creates COVID-19 text and line annotations.</li>
+<code><a href="reference/jp_dw_scale_y.html">jp_dw_scale_y()</a></code> modifies the y-axis elements, including truncating the scale; and<br>
+</li>
+<li>
+<code><a href="reference/jp_dw_c19_annotation.html">jp_dw_c19_annotation()</a></code> creates COVID-19 text and line annotations.</li>
 </ul>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -115,46 +121,50 @@
 <div id="getting-started" class="section level2">
 <h2 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h2>
-<p><strong>jakpoststyle</strong> works on an existing Datawrapper chart. It requires the <strong>DatawRappr</strong> package, which allows you to use the Datawrapper’s API through R.</p>
+<p>The <strong>jakpoststyle</strong> package works on an existing Datawrapper chart. It requires the <strong>DatawRappr</strong> package, which allows you to use the Datawrapper’s API through R.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load the packages</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/munichrocker/DatawRappr">DatawRappr</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dzulfiqarfr/jakpoststyle">jakpoststyle</a></span><span class="op">)</span>
 
-<span class="co"># Apply the custom theme</span>
-<span class="fu"><a href="reference/jakpost_style.html">jakpost_style</a></span><span class="op">(</span>
+<span class="co"># Apply the theme</span>
+<span class="fu"><a href="reference/jp_dw_theme.html">jp_dw_theme</a></span><span class="op">(</span>
   <span class="va">chart_id</span>,
   author <span class="op">=</span> <span class="st">"Dzulfiqar Fathur Rahman"</span>,
-  intro <span class="op">=</span> <span class="st">"Indonesian manufacturing sector's output (percent change from a year earlier)"</span>,
+  intro <span class="op">=</span> <span class="st">"Indonesian manufacturing sector's growth (percent change from a year earlier)"</span>,
   source_name <span class="op">=</span> <span class="st">"Statistics Indonesia (BPS)"</span>,
   source_url <span class="op">=</span> <span class="st">"bps.go.id"</span>
 <span class="op">)</span>
 
-<span class="co"># Modify the y-axis</span>
-<span class="fu"><a href="reference/jp_scale_y.html">jp_scale_y</a></span><span class="op">(</span>
+<span class="co"># Modify the x-axis</span>
+<span class="fu"><a href="reference/jp_dw_scale_x.html">jp_dw_scale_x</a></span><span class="op">(</span>
   <span class="va">chart_id</span>,
-  y <span class="op">=</span> <span class="st">"growth"</span>,
-  scale_y_max <span class="op">=</span> <span class="fl">6</span>,
-  scale_y_min_rule <span class="op">=</span> <span class="st">"truncated"</span>,
-  scale_y_increment <span class="op">=</span> <span class="fl">3</span>
+  format <span class="op">=</span> <span class="st">"quarterly"</span>,
+  axis_line <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span>
 
-<span class="co"># Add COVID-19 pandemic line and text annotations</span>
-<span class="fu"><a href="reference/jp_covid_annotation.html">jp_covid_annotation</a></span><span class="op">(</span>
+<span class="co"># Modify the y-axis</span>
+<span class="fu"><a href="reference/jp_dw_scale_y.html">jp_dw_scale_y</a></span><span class="op">(</span>
   <span class="va">chart_id</span>,
-  covid_text_y <span class="op">=</span> <span class="fl">6</span>,
-  text_color <span class="op">=</span> <span class="st">"#ee493a"</span>,
-  line_color <span class="op">=</span> <span class="st">"#ee493a"</span>,
-  line_type <span class="op">=</span> <span class="st">"dashed"</span>
+  y_var <span class="op">=</span> <span class="st">"growth"</span>,
+  max <span class="op">=</span> <span class="fl">6</span>,
+  min <span class="op">=</span> <span class="st">"truncated"</span>,
+  increment <span class="op">=</span> <span class="fl">3</span>
+<span class="op">)</span>
+
+<span class="co"># Add COVID-19 annotations</span>
+<span class="fu"><a href="reference/jp_dw_c19_annotation.html">jp_dw_c19_annotation</a></span><span class="op">(</span>
+  <span class="va">chart_id</span>,
+  y_position <span class="op">=</span> <span class="fl">6</span>
 <span class="op">)</span></code></pre></div>
-<p><br><img src="reference/figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;"></p>
+<p><br><img src="reference/figures/idn_manufacturing_plot.png" width="1220" style="display: block; margin: auto;"></p>
 </div>
 <div id="r-markdown-template" class="section level2">
 <h2 class="hasAnchor">
 <a href="#r-markdown-template" class="anchor"></a>R Markdown template</h2>
-<p>The package also includes an R Markdown template that describes the typical workflow when creating charts on Datawrapper through R.</p>
+<p>The package comes with an R Markdown template that describes my typical workflow when creating Datawrapper charts through R.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/rmarkdown/man/draft.html">draft</a></span><span class="op">(</span><span class="st">"my_project.Rmd"</span>, template <span class="op">=</span> <span class="st">"jakpoststyle"</span>, package <span class="op">=</span> <span class="st">"jakpoststyle"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/draft.html">draft</a></span><span class="op">(</span><span class="st">"my_project.Rmd"</span>, template <span class="op">=</span> <span class="st">"jakpoststyle"</span>, package <span class="op">=</span> <span class="st">"jakpoststyle"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="note" class="section level2">
 <h2 class="hasAnchor">
@@ -166,10 +176,10 @@
 <a href="#disclaimer" class="anchor"></a>Disclaimer</h2>
 <p>This is not an official template from The Jakarta Post.</p>
 </div>
-<div id="more-resources" class="section level2">
+<div id="resources" class="section level2">
 <h2 class="hasAnchor">
-<a href="#more-resources" class="anchor"></a>More resources</h2>
-<p>The package mainly uses the <code><a href="https://rdrr.io/pkg/DatawRappr/man/dw_edit_chart.html">dw_edit_chart()</a></code> function from the <strong>DatawRappr</strong> package, which you can learn <a href="https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html">here</a>. You can read Datawrapper’s API documentation <a href="https://developer.datawrapper.de/reference">here</a>.</p>
+<a href="#resources" class="anchor"></a>Resources</h2>
+<p>The package mainly uses the <a href="https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html"><code>dw_edit_chart()</code></a> function from the <strong>DatawRappr</strong> package. You can also read Datawrapper’s <a href="https://developer.datawrapper.de/reference">API documentation</a>.</p>
 </div>
 </div>
   </div>
@@ -201,6 +211,7 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://github.com/dzulfiqarfr/jakpoststyle/actions"><img src="https://github.com/dzulfiqarfr/jakpoststyle/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/gh/dzulfiqarfr/jakpoststyle?branch=main"><img src="https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
