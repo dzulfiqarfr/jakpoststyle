@@ -1,6 +1,6 @@
 Package: jakpoststyle
 Title: R Package to Apply The Jakarta Post Custom Theme to Datawrapper Charts
-Version: 0.0.0.9000
+Version: 0.1.0.9000
 Authors@R: 
     person(given = "Dzulfiqar",
            family = "Fathur Rahman",
@@ -32,6 +32,7 @@ Suggests:
     pkgdown,
     rmarkdown,
     testthat (>= 3.0.0),
-    lubridate
+    lubridate,
+    markdown
 Config/testthat/edition: 3
 VignetteBuilder: knitr
