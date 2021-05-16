@@ -1,12 +1,12 @@
-test_that("Y-axis scale has been successfully modified", {
+test_that("The Jakarta Post theme", {
 
   x <- dplyr::tibble(
     month = seq(
-      lubridate::ymd("2020-01-01"),
+      lubridate::ymd("2019-04-01"),
       lubridate::ymd("2020-10-01"),
-      by = "month"
+      by = "3 month"
     ),
-    val = seq(2, 20, by = 2)
+    val = seq(-12, 6, 3)
   )
 
   chart_id <- "SbzoE"
@@ -14,12 +14,10 @@ test_that("Y-axis scale has been successfully modified", {
   DatawRappr::dw_data_to_chart(x, chart_id)
 
   expect_output(
-    jp_scale_y(
+    jp_dw_theme(
       chart_id,
-      y = "val",
-      scale_y_max = 20,
-      scale_y_min_rule = 0,
-      scale_y_increment = 5
+      author = "Howard Wolowitz",
+      footnote = stringr::str_c("Last updated on ", format(Sys.time(), "%b %d, %Y"))
     ),
     stringr::str_c("Chart ", chart_id, " succesfully updated.")
   )

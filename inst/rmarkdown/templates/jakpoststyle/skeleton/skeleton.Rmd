@@ -1,6 +1,7 @@
 ---
 title: "Untitled"
 date: "`r Sys.Date()`"
+author: "Author"
 output: 
   html_document:
     toc: true  
@@ -16,86 +17,92 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Setup
+# Setup
 
 ```{r library}
 library(tidyverse)
+library(lubridate)
 library(DatawRappr)
 library(jakpoststyle)
 ```
 
-## Data
+# Data
 
 ```{r data}
-raw <- iris
+data <- iris
 ```
 
-## Datawrapper
+# Datawrapper
 
-Authorize the token to access the Datawrapper API.
+Authorize the access to The Jakarta Post's Datawrapper API.
 
 ```{r api key}
-api_key <- ""
-
-# Adds the key to your R environment, overwriting the existing key
+api_key <- "key"
 datawrapper_auth(api_key, overwrite = T)
 ```
 
-Create the chart and upload the data.
+Create a chart and upload the data.
 
 ```{r chart}
 # Create the chart
 chart <- dw_create_chart(
-  title = "",
-  type = "",
+  title = "title",
+  type = "type",
   theme = "datawrapper"
 )
 
-# Obtain chart id
+# Retrieve the chart id
 chart_id <- chart$id
 
-# Upload the data
-dw_data_to_chart(raw, chart_id)
+# Upload the data to the chart
+dw_data_to_chart(data, chart_id)
 ```
 
-## Apply custom theme
+# Edit chart properties
 
-Position the y-axis on the right side and add description, byline, source and logo.
+Apply the theme.
 
-```{r jakpoststyle}
-jakpost_style(
+```{r theme}
+jp_dw_theme(
   chart_id,
-  author = "",
-  intro = "",
-  source_name = "",
-  source_url = ""
+  author = "author",
+  intro = "description",
+  source_name = "name",
+  source_url = "url"
+)
+```
+
+Modify the x-axis.
+
+```{r x-axis}
+jp_dw_scale_x(
+  chart_id,
+  format = "auto",
+  axis_line = FALSE
 )
 ```
 
 Modify the y-axis.
 
 ```{r y-axis}
-jp_scale_y(
+jp_dw_scale_y(
   chart_id,
-  y = ""
+  y_var = "val",
+  max = max(y_var, na.rm = T),
+  min = "min"
 )
 ```
 
-Add COVID-19 pandemic annotation.
+Add COVID-19 pandemic annotations.
 
-```{r pandemic annotation}
-jp_covid_annotation(
-  chart_id
+```{r pandemic annotations}
+jp_dw_c19_annotation(
+  chart_id,
+  y_position = NA
 )
 ```
 
-## Preview chart
-
-```{r preview}
-dw_export_chart(chart_id)
-```
-
-## Publish chart
+# Publish chart
 
 ```{r publish}
 dw_publish_chart(chart_id)

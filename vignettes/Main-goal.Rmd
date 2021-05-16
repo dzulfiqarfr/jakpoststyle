@@ -33,15 +33,15 @@ The main goal of **jakpoststyle** is to make editing [Datawrapper](https://www.d
 
 When creating charts, tasks such as adding a logo, moving the y-axis to the right side of the plot or calculating the scale limits often get repeated. This package prevents such tasks from taking up your time.
 
-With a free plan Datawrapper account, we cannot have a custom theme that places a logo on the chart. So we have to add the logo as an image with some HTML code. This means copying and pasting the code every time we create a chart. The `jakpost_style()` function takes care of this by adding The Jakarta Post's logo to the chart by default.[^1]
+With a free plan Datawrapper account, we cannot have a custom theme that places a logo on the chart. So we have to add the logo as an image with some HTML code. This means copying and pasting the code every time we create a chart. The `jp_dw_theme()` function takes care of this by adding The Jakarta Post's logo to the chart by default.[^1]
 
-[^1]: The Jakarta Post's actually has a custom plan Datawrapper account, which lets users to have a custom theme and thus puts a logo on the chart. However, there has yet to be any custom theme and an official design guide for web-based charts. So, for the time being, we will adopt the common best practices for creating (static) charts.
+[^1]: The Jakarta Post actually has a custom plan Datawrapper account, which lets users to have a custom theme and thus puts a logo on the chart. However, there has yet to be any theme and an official design guide for (web-based) charts.
 
 ## Y-axis
 
-The `jakpost_style()` function automatically puts the y-axis on the right side of the plot. This is helpful because people mostly read visualizations of time series data from left to right, namely from values in the earliest period to the ones in the most recent period of observation. These are the values of interest.
+The `jp_dw_theme()` function automatically puts the y-axis on the right side of the plot. This is helpful because people mostly read visualizations of time series data from left to right, namely from values in the earliest period to the ones in the most recent period of observation. These are the values of interest.
 
-The `jp_scale_y()` function helps us break the y-axis scale using the golden ratio outlined by Francis Gagnon. That is, one-third of the plot area at the bottom should be empty for a chart that doesn't start at zero -- with an exception for bar or column charts in some cases. 
+The `jp_dw_scale_y()` function helps us break the y-axis scale using the golden ratio outlined by Francis Gagnon. That is, one-third of the plot area at the bottom should be empty for a chart that doesn't start at zero -- with an exception for bar or column charts in some cases. 
 
 This ratio balances the need to show (small) variations in the data and avoid the misperception of the data reaching ground zero. 
 
@@ -49,15 +49,12 @@ To that end, the function uses the following formula from Gagnon to find the min
 
 $$b = \frac{3c - a}{2}$$
 
-where *c* is the minimum value in the variable mapped to the y-axis and *a* is the maximum value of the scale. The function then rounds the number. You can customize the rounding with the `scale_y_round` argument.
+where *c* is the minimum value in the variable mapped to the y-axis and *a* is the maximum value of the scale. The function then rounds the number.
 
-The following chart on Indonesian manufacturing sector's output uses the golden ratio.
+The following chart on Indonesian manufacturing sector's growth uses the golden ratio.
 
-<br>
-<p align="center">
-![Demo: Indonesian manufacturing sector's output](figures/idn_manufacturing_plot.png)
-</p>
-<br>
+<iframe title="Pandemic slowdown" aria-label="Interactive line chart" id="datawrapper-chart-WQfwE" src="https://datawrapper.dwcdn.net/WQfwE/4/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"])for(var e in a.data["datawrapper-height"]){var t=document.getElementById("datawrapper-chart-"+e)||document.querySelector("iframe[src*='"+e+"']");t&&(t.style.height=a.data["datawrapper-height"][e]+"px")}}))}();
+</script>
 
 To check whether it has followed the golden ratio, we can use the following formula:
 
@@ -65,11 +62,11 @@ $$x = \frac{c - b}{a - b}$$
 
 where the minimum value in the variable is -6.19, the minimum value of the scale is -12 and the maximum value of the scale is 6. This leaves some 32.28 percent of the plot area at the bottom empty.
 
-However, the `jp_scale_y()` function sets the minimum value in the variable as the minimum value of the scale by default. It also accepts an integer to manually set the minimum value of the scale.
+However, the `jp_dw_scale_y()` function sets the minimum value in the variable as the minimum value of the scale by default. It also accepts an integer to manually set the minimum value of the scale.
 
 ## COVID-19 annotations
 
-The `jp_covid_annotation()` makes it easy to add line and text annotations for COVID-19 pandemic. By default, it places the annoations on the x-axis based on the pandemic timeline for Indonesia. The country reported its first two confirmed coronavirus cases on March 2. However,  you can always customize the position of the annotations using the `date` argument.
+The `jp_dw_c19_annotation()` makes it easy to add line and text annotations to highlight the COVID-19 pandemic. By default, it places the annoations on the x-axis based on the timeline in Indonesia. The country reported its first two confirmed coronavirus cases on March 2. However,  you can always customize the position of the annotations using the `x_position` argument.
 
 ## Resources
 

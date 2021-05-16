@@ -1,30 +1,30 @@
-#' Apply The Jakarta Post theme to Datawrapper charts
+#' Apply The Jakarta Post theme
 #'
-#' Use the The Jakarta Post custom theme to edit Datawrapper chart properties.
+#' Add a prefix to the byline, the Post’s logo to the chart and modify axes and
+#' the grid lines, in addition to other minor changes.
 #'
-#' @param chart_id Datawrapper chart id.
-#' @param author Byline of the chart.
-#' @param footnote Footnote to the chart.
-#' @param logo Logical. Defaults to `TRUE`.
-#'   When `FALSE`, it removes The Jakarta Post's logo from the chart.
+#' @param chart_id String. Datawrapper chart id.
+#' @param author String. Who creates the chart?
+#' @param footnote String. Footnote to the chart.
+#' @param logo Logical. Defaults to TRUE. When FALSE, the function does not add
+#' The Jakarta Post’s logo to the chart.
 #' @param ... Other arguments passed on to \code{\link[DatawRappr]{dw_edit_chart}},
-#'   including `intro`, `source_name` and `source_url` for chart subtitle,
-#'   source and source's link, respectively.
+#'   including `intro`, `source_name` and `source_url`.
 #'
 #' @seealso \code{\link[DatawRappr]{dw_edit_chart}} for the underlying function.
 #'
 #' @examples
 #' \dontrun{
-#' jakpost_style(
+#' jp_dw_theme(
 #'   chart_id = "4BcD3",
-#'   author = "Dzulfiqar Fathur Rahman",
-#'   intro = "Indonesia's gross domestic product (GDP) per capita (in US dollars)",
+#'   author = "Leonard Hofstadter",
+#'   intro = "Indonesia's GDP per capita (in US dollars)",
 #'   source_name = "Gapminder"
 #' )
 #' }
 #'
 #' @export
-jakpost_style <- function(
+jp_dw_theme <- function(
   chart_id,
   author,
   footnote = "",
@@ -35,25 +35,27 @@ jakpost_style <- function(
   # Chart type
   chart_type <- DatawRappr::dw_retrieve_chart_metadata(chart_id)$content$type
 
-
-  # Chart type libraries
-  line_type <- c("d3-lines", "d3-area")
-  col_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
+  # Chart type library
+  line_chart_type <- c("d3-lines", "d3-area")
+  col_chart_type <- c("column-chart", "grouped-column-chart", "stacked-column-chart")
 
   # Warning for other chart types
-  if (!any(chart_type %in% c(line_type, col_type))) {
+  if (!any(chart_type %in% c(line_chart_type, col_chart_type))) {
     warning(
       stringr::str_c(
-        "jakpost_style() is not optimized for ",
+        "The `jakpoststyle` package is not optimized for ",
         chart_type,
         ". Some features may not work."
       )
     )
   }
 
-  # Custom theme
+  # Theme
   DatawRappr::dw_edit_chart(
     chart_id = chart_id,
+    language = "en-US",
+    theme = "datawrapper",
+    publish = list(blocks = list(`download-image` = TRUE)),
     visualize = list(
       `x-grid` = "ticks",
       `grid-lines-x` = list(
@@ -61,26 +63,23 @@ jakpost_style <- function(
         enabled = TRUE
       ),
       `y-grid` = "on",
+      labeling = "off",
+      `label-colors` = "false",
+      `show-tooltips` = "true",
       `y-grid-format` = "0,0.[00]",
       `y-grid-labels` = "inside",
-      `y-grid-label-align` = "right",
       yAxisLabels = list(
         enabled = TRUE,
         alignment = "right",
         placement = "inside"
       ),
-      labeling = "off",
-      `label-colors` = "false",
-      categoryLabels = list(
-        enabled = TRUE,
-        position = "color-key"
-      ),
-      `show-tooltips` = "true",
       valueLabels = list(
         show = "hover",
         enabled = TRUE,
         placement = "inside"
-      )
+      ),
+      categoryLabels = list(enabled = TRUE, position = "color-key"),
+      `y-grid-label-align` = "right"
     ),
     byline = stringr::str_c("JP/", author),
     annotate = stringr::str_c(
@@ -102,7 +101,6 @@ jakpost_style <- function(
       },
       sep = dplyr::if_else(footnote != "", " ", "")
     ),
-    language = "en-US",
     ...
   )
 

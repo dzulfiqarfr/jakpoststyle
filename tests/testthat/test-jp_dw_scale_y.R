@@ -1,12 +1,12 @@
-test_that("COVID-19 annotation has been successfully added", {
+test_that("Y-axis format", {
 
   x <- dplyr::tibble(
     month = seq(
-      lubridate::ymd("2020-01-01"),
+      lubridate::ymd("2019-04-01"),
       lubridate::ymd("2020-10-01"),
-      by = "month"
+      by = "3 month"
     ),
-    val = seq(2, 20, by = 2)
+    val = seq(-12, 6, 3)
   )
 
   chart_id <- "SbzoE"
@@ -14,9 +14,12 @@ test_that("COVID-19 annotation has been successfully added", {
   DatawRappr::dw_data_to_chart(x, chart_id)
 
   expect_output(
-    jp_covid_annotation(
+    jp_dw_scale_y(
       chart_id,
-      covid_text_y = 20
+      y_var = "val",
+      max = 6,
+      min = -12,
+      increment = 3
     ),
     stringr::str_c("Chart ", chart_id, " succesfully updated.")
   )

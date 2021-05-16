@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/dzulfiqarfr/jakpoststyle/workflows/R-CMD-check/badge.svg)](https://github.com/dzulfiqarfr/jakpoststyle/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge.svg)](https://codecov.io/gh/dzulfiqarfr/jakpoststyle?branch=main)
@@ -12,17 +14,20 @@ coverage](https://codecov.io/gh/dzulfiqarfr/jakpoststyle/branch/main/graph/badge
 
 The **jakpoststyle** package makes it easy to customize
 [Datawrapper](https://www.datawrapper.de/) charts (created with a free
-plan account) using a custom theme of The Jakarta Post. It builds on the
-**DatawRappr** package developed by [Benedict
-Witzenberger](https://github.com/munichrocker).
+plan account) with the theme I usually use for [The Jakarta
+Post](thejakartapost.com). It builds on the
+[**DatawRappr**](https://github.com/munichrocker/DatawRappr) package
+developed by Benedict Witzenberger.
 
-The functions:
+The functions are as follow:
 
--   `jakpost_style()` adds a chart description, byline and The Jakarta
-    Post’s logo;  
--   `jp_scale_y()` modifies the y-axis elements, including truncating
+-   `jp_dw_theme()` edits the axes, byline and layout, as well as adds
+    the Post’s logo;  
+-   `jp_dw_scale_x()` modifies the x-axis tick format and adds an axis
+    line;  
+-   `jp_dw_scale_y()` modifies the y-axis elements, including truncating
     the scale; and  
--   `jp_covid_annotation()` creates COVID-19 text and line annotations.
+-   `jp_dw_c19_annotation()` creates COVID-19 text and line annotations.
 
 ## Installation
 
@@ -32,50 +37,54 @@ devtools::install_github("dzulfiqarfr/jakpoststyle")
 
 ## Getting started
 
-**jakpoststyle** works on an existing Datawrapper chart. It requires the
-**DatawRappr** package, which allows you to use the Datawrapper’s API
-through R.
+The **jakpoststyle** package works on an existing Datawrapper chart. It
+requires the **DatawRappr** package, which allows you to use the
+Datawrapper’s API through R.
 
 ``` r
 # Load the packages
 library(DatawRappr)
 library(jakpoststyle)
 
-# Apply the custom theme
-jakpost_style(
+# Apply the theme
+jp_dw_theme(
   chart_id,
   author = "Dzulfiqar Fathur Rahman",
-  intro = "Indonesian manufacturing sector's output (percent change from a year earlier)",
+  intro = "Indonesian manufacturing sector's growth (percent change from a year earlier)",
   source_name = "Statistics Indonesia (BPS)",
   source_url = "bps.go.id"
 )
 
-# Modify the y-axis
-jp_scale_y(
+# Modify the x-axis
+jp_dw_scale_x(
   chart_id,
-  y = "growth",
-  scale_y_max = 6,
-  scale_y_min_rule = "truncated",
-  scale_y_increment = 3
+  format = "quarterly",
+  axis_line = TRUE
 )
 
-# Add COVID-19 pandemic line and text annotations
-jp_covid_annotation(
+# Modify the y-axis
+jp_dw_scale_y(
   chart_id,
-  covid_text_y = 6,
-  text_color = "#ee493a",
-  line_color = "#ee493a",
-  line_type = "dashed"
+  y_var = "growth",
+  max = 6,
+  min = "truncated",
+  increment = 3
+)
+
+# Add COVID-19 annotations
+jp_dw_c19_annotation(
+  chart_id,
+  y_position = 6
 )
 ```
 
 <br>
-<img src="man/figures/idn_manufacturing_plot.png" width="1400" style="display: block; margin: auto;" />
+<img src="man/figures/idn_manufacturing_plot.png" width="1220" style="display: block; margin: auto;" />
 
 ## R Markdown template
 
-The package also includes an R Markdown template that describes the
-typical workflow when creating charts on Datawrapper through R.
+The package comes with an R Markdown template that describes my typical
+workflow when creating Datawrapper charts through R.
 
 ``` r
 rmarkdown::draft("my_project.Rmd", template = "jakpoststyle", package = "jakpoststyle")
@@ -90,10 +99,10 @@ other chart types will, hopefully, follow in the future.
 
 This is not an official template from The Jakarta Post.
 
-## More resources
+## Resources
 
-The package mainly uses the `dw_edit_chart()` function from the
-**DatawRappr** package, which you can learn
-[here](https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html).
-You can read Datawrapper’s API documentation
-[here](https://developer.datawrapper.de/reference).
+The package mainly uses the
+[`dw_edit_chart()`](https://munichrocker.github.io/DatawRappr/reference/dw_edit_chart.html)
+function from the **DatawRappr** package. You can also read
+Datawrapper’s [API
+documentation](https://developer.datawrapper.de/reference).

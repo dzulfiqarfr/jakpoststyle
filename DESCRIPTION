@@ -8,9 +8,8 @@ Authors@R:
            email = "frdzulfiqar@gmail.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: Edit Datawrapper chart properties using 
-    a custom theme of The Jakarta Post. This makes it easy to position the y-axis
-    on the right side, modify the y-axis elements, write the byline, 
-    add the Post's logo and create a COVID-19 annotation.
+    a custom theme of The Jakarta Post. This makes it easy to modify axis elements, 
+    write the byline, add the Post's logo and create COVID-19 annotations.
 License: MIT + file LICENSE
 URL: https://github.com/dzulfiqarfr/jakpoststyle
 BugReports: https://github.com/dzulfiqarfr/jakpoststyle/issues
@@ -21,7 +20,9 @@ RoxygenNote: 7.1.1
 Imports: 
     stringr,
     dplyr,
-    DatawRappr
+    DatawRappr,
+    lifecycle,
+    qpdf
 Remotes: 
     github::munichrocker/DatawRappr
 Suggests: 
