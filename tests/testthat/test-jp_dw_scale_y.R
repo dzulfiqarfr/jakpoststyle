@@ -19,7 +19,7 @@ test_that("Y-axis format", {
       y_var = "val",
       max = 6,
       min = -12,
-      increment = 3
+      num_ticks = 6
     ),
     stringr::str_c("Chart ", chart_id, " succesfully updated.")
   )

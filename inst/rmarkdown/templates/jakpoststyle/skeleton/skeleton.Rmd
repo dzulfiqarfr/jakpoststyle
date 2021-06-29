@@ -5,43 +5,52 @@ author: "Author"
 output: 
   html_document:
     toc: true  
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  collapse = T,
-  message = F,
-  fig.width = 4, 
-  fig.asp = 0.618,
-  fig.align = "center"
+  echo = T, 
+  collapse = T, 
+  message = F, 
+  comment = "#>"
 )
 ```
 
-# Setup
 
-```{r library}
+## Setup
+
+```{r libraries}
 library(tidyverse)
+library(readxl)
 library(lubridate)
+library(httr)
+library(jsonlite)
 library(DatawRappr)
 library(jakpoststyle)
 ```
 
-# Data
+
+## Data
 
 ```{r data}
 data <- iris
 ```
 
-# Datawrapper
 
-Authorize the access to The Jakarta Post's Datawrapper API.
+## Create chart
+
+Authorize access to The Jakarta Post's Datawrapper API.
 
 ```{r api key}
-api_key <- "key"
+# Store API key
+api_key <- Sys.getenv("DW_KEY")
+
+# Authenticate
 datawrapper_auth(api_key, overwrite = T)
 ```
 
-Create a chart and upload the data.
+Create a chart and upload a data to the chart.
 
 ```{r chart}
 # Create the chart
@@ -58,7 +67,8 @@ chart_id <- chart$id
 dw_data_to_chart(data, chart_id)
 ```
 
-# Edit chart properties
+
+## Edit chart properties
 
 Apply the theme.
 
@@ -72,24 +82,24 @@ jp_dw_theme(
 )
 ```
 
-Modify the x-axis.
-
-```{r x-axis}
-jp_dw_scale_x(
-  chart_id,
-  format = "auto",
-  axis_line = FALSE
-)
-```
-
 Modify the y-axis.
 
 ```{r y-axis}
 jp_dw_scale_y(
   chart_id,
   y_var = "val",
-  max = max(y_var, na.rm = T),
+  max = "max",
   min = "min"
+)
+```
+
+Modify the x-axis.
+
+```{r x-axis}
+jp_dw_scale_x(
+  chart_id,
+  format = "auto",
+  axis_line = F
 )
 ```
 
@@ -102,7 +112,8 @@ jp_dw_c19_annotation(
 )
 ```
 
-# Publish chart
+
+## Publish chart
 
 ```{r publish}
 dw_publish_chart(chart_id)

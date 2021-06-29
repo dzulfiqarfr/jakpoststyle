@@ -10,7 +10,9 @@
 #' the lowest value in the variable. Also takes an integer and “truncated”,
 #' which leaves some one-third space of the plot area at the bottom empty
 #' for a chart that doesn’t start at zero.
-#' @param increment Integer. Increment of the breaks.
+#' @param num_ticks Integer. Number of axis ticks. Defaults to 5. The total
+#' number of ticks that appears on the chart will be `num_ticks` + 1 as it includes
+#' the lower limit of the axis.
 #'
 #' @seealso \code{\link[DatawRappr]{dw_edit_chart}} for the underlying function.
 #'
@@ -20,7 +22,7 @@
 #'   chart_id = "4BcD3",
 #'   y_var = "lifeExp",
 #'   min = 0,
-#'   increment = 20
+#'   num_ticks = 5
 #' )
 #' }
 #'
@@ -28,9 +30,9 @@
 jp_dw_scale_y <- function(
   chart_id,
   y_var,
-  max = max(y_var, na.rm = TRUE),
+  max = "max",
   min = "min",
-  increment
+  num_ticks = 5
 ) {
 
   # Chart type
@@ -57,20 +59,31 @@ jp_dw_scale_y <- function(
   # Rules for y-axis
   range <- c(
     if (min == "truncated") {
-      round((3 * min(scale_y_var, na.rm = TRUE) - max) / 2)
+      round((3 * min(scale_y_var, na.rm = T) - max) / 2, -1)
     } else if (min == "min") {
-      round(min(scale_y_var, na.rm = TRUE))
+      round(min(scale_y_var, na.rm = T), -1)
     } else {
       min
     },
-    round(max)
+    if (max == "max") {
+      round(max(scale_y_var, na.rm = T), -1)
+    } else {
+      max
+    }
   )
+
+  # Axis ticks
+  tick_increment <- (range[2] - range[1]) / num_ticks
+
+  if (tick_increment < 0 ) {
+    tick_increment <- tick_increment * -1
+  }
 
   # Custom range and ticks for line chart
   scale_y_line <- list(
     `custom-range-y` = range,
     `custom-ticks-y` = stringr::str_c(
-      seq(range[1], range[2], by = increment),
+      seq(range[1], range[2], by = tick_increment),
       collapse = ", "
     )
   )
@@ -79,7 +92,7 @@ jp_dw_scale_y <- function(
   scale_y_col <- list(
     `custom-range` = range,
     `custom-ticks` = stringr::str_c(
-      seq(range[1], range[2], by = increment),
+      seq(range[1], range[2], by = tick_increment),
       collapse = ", "
     )
   )

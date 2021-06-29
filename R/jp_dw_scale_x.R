@@ -44,6 +44,9 @@ jp_dw_scale_x <- function(
     )
   }
 
+  # Variable mapped to the x-axis
+  scale_x_var <- DatawRappr::dw_data_from_chart(chart_id)[[1]]
+
   # X-axis tick format
   format <- if (format == "monthy") {
     "YYYY|MMM"
@@ -61,7 +64,7 @@ jp_dw_scale_x <- function(
 
   # Axis line
   axis_line_annotation <- list(
-    y0 = y_axis_low_lim + 0.075,
+    y0 = y_axis_low_lim + 0.05,
     type = "y",
     color = "#000000",
     display = "line",
@@ -78,6 +81,7 @@ jp_dw_scale_x <- function(
     chart_id = chart_id,
     visualize = list(
       `x-tick-format` = format,
+      `custom-range-x` = list(dplyr::first(scale_x_var), dplyr::last(scale_x_var)),
       `range-annotations` = if (axis_line == TRUE && is.null(existing_ra) == FALSE) {
         existing_ra
       } else if (axis_line == TRUE && is.null(existing_ra) == TRUE) {

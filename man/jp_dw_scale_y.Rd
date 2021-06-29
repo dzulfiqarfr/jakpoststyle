@@ -4,13 +4,7 @@
 \alias{jp_dw_scale_y}
 \title{Modify y-axis}
 \usage{
-jp_dw_scale_y(
-  chart_id,
-  y_var,
-  max = max(y_var, na.rm = TRUE),
-  min = "min",
-  increment
-)
+jp_dw_scale_y(chart_id, y_var, max = "max", min = "min", num_ticks = 5)
 }
 \arguments{
 \item{chart_id}{String. Datawrapper chart id.}
@@ -25,7 +19,9 @@ the lowest value in the variable. Also takes an integer and “truncated”,
 which leaves some one-third space of the plot area at the bottom empty
 for a chart that doesn’t start at zero.}
 
-\item{increment}{Integer. Increment of the breaks.}
+\item{num_ticks}{Integer. Number of axis ticks. Defaults to 5. The total
+number of ticks that appears on the chart will be \code{num_ticks} + 1 as it includes
+the lower limit of the axis.}
 }
 \description{
 Customize the scale limits and breaks for a y-axis that maps a continuous variable.
@@ -36,7 +32,7 @@ jp_dw_scale_y(
   chart_id = "4BcD3",
   y_var = "lifeExp",
   min = 0,
-  increment = 20
+  num_ticks = 5
 )
 }
 

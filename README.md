@@ -59,7 +59,7 @@ jp_dw_theme(
 jp_dw_scale_x(
   chart_id,
   format = "quarterly",
-  axis_line = TRUE
+  axis_line = T
 )
 
 # Modify the y-axis
@@ -68,7 +68,7 @@ jp_dw_scale_y(
   y_var = "growth",
   max = 6,
   min = "truncated",
-  increment = 3
+  num_ticks = 6
 )
 
 # Add COVID-19 annotations
