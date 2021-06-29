@@ -93,7 +93,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">jakpoststyle</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
       </span>
     </div>
 
@@ -147,13 +147,7 @@
     <p>Customize the scale limits and breaks for a y-axis that maps a continuous variable.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>jp_dw_scale_y</span><span class='op'>(</span>
-  <span class='va'>chart_id</span>,
-  <span class='va'>y_var</span>,
-  max <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/Extremes.html'>max</a></span><span class='op'>(</span><span class='va'>y_var</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>,
-  min <span class='op'>=</span> <span class='st'>"min"</span>,
-  <span class='va'>increment</span>
-<span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>jp_dw_scale_y</span><span class='op'>(</span><span class='va'>chart_id</span>, <span class='va'>y_var</span>, max <span class='op'>=</span> <span class='st'>"max"</span>, min <span class='op'>=</span> <span class='st'>"min"</span>, num_ticks <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -179,8 +173,10 @@ which leaves some one-third space of the plot area at the bottom empty
 for a chart that doesn’t start at zero.</p></td>
     </tr>
     <tr>
-      <th>increment</th>
-      <td><p>Integer. Increment of the breaks.</p></td>
+      <th>num_ticks</th>
+      <td><p>Integer. Number of axis ticks. Defaults to 5. The total
+number of ticks that appears on the chart will be <code>num_ticks</code> + 1 as it includes
+the lower limit of the axis.</p></td>
     </tr>
     </table>
 
@@ -194,7 +190,7 @@ for a chart that doesn’t start at zero.</p></td>
   chart_id <span class='op'>=</span> <span class='st'>"4BcD3"</span>,
   y_var <span class='op'>=</span> <span class='st'>"lifeExp"</span>,
   min <span class='op'>=</span> <span class='fl'>0</span>,
-  increment <span class='op'>=</span> <span class='fl'>20</span>
+  num_ticks <span class='op'>=</span> <span class='fl'>5</span>
 <span class='op'>)</span>
 <span class='op'>}</span>
 
