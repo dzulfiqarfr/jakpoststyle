@@ -2,6 +2,8 @@
 
 * Fixed the default value to set the upper limit of the y-axis with the `max` parameter in the `jp_dw_scale_y()` function.
 
+* Added `num_ticks` argument to the `jp_dw_scale_y()` function and removed the `increment` argument.
+
 * Added an argument to round the y-axis limits.
 
 * Modified the R Markdown template's workflow and global chunk options.

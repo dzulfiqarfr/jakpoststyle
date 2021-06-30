@@ -57,13 +57,6 @@ jp_dw_theme(
   source_url = "bps.go.id"
 )
 
-# Modify the x-axis
-jp_dw_scale_x(
-  chart_id,
-  format = "quarterly",
-  axis_line = T
-)
-
 # Modify the y-axis
 jp_dw_scale_y(
   chart_id,
@@ -71,6 +64,13 @@ jp_dw_scale_y(
   max = 6,
   min = "truncated",
   num_ticks = 6
+)
+
+# Modify the x-axis
+jp_dw_scale_x(
+  chart_id,
+  format = "quarterly",
+  axis_line = T
 )
 
 # Add COVID-19 annotations
